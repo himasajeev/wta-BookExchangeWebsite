@@ -31,7 +31,8 @@ DELIMITER ;;
 CREATE DEFINER=`root`@`localhost` PROCEDURE `add_book`(IN bookname VARCHAR(45),IN author VARCHAR(45), IN userr VARCHAR(45), IN cost INT,IN url VARCHAR(45))
 BEGIN
   INSERT INTO book
-  values(@bookname,@author,@price,@url,"yes");
+  values(@bookname,@author,@url,1,@price);
+  call add_book_belongs_to(@bookname,@author,@userr);
 END ;;
 DELIMITER ;
 /*!50003 SET sql_mode              = @saved_sql_mode */ ;
@@ -114,4 +115,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-04-17 23:43:35
+-- Dump completed on 2020-04-18 12:39:50
