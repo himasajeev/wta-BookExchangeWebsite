@@ -20,12 +20,13 @@ con.connect(function(err) {
 
 // viewed at http://localhost:8080
 app.get('/', function(req, res) {
-	con.query("select * from book",function(err,result){
-       console.log(result);
-       console.log(err);
-	});
+	//con.query("select * from book",function(err,result){
+      // console.log(result);
+      // console.log(err);
+	//});
     res.sendFile(path.join(__dirname + '/client/home.html'));
 });
+
 
 
 var server=app.listen(4000,function(){
