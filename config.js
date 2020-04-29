@@ -3,7 +3,7 @@ var express=require("express");
 const con=mysql.createConnection({
 	host: "localhost",
 	user: "root",
-	password:"hartsharts",
+	password:"hartshart",
 	database:"mydb"
 });
 con.connect(function(err) {

@@ -24,17 +24,16 @@ module.exports.login = function(req,res){
         }
         else{
           console.log(results,password,results[0].Passwordd,ans)
-          res.send({
-               "code":204,
-               "success":"username and password does not match"
-          })
+          res.render("login.ejs",{
+               message:"username and password does not match"
+          });
         }
       }
       else{
-        res.send({
-          "code":206,
-          "success":"username does not exits"
-            });
+				res.render("login.ejs",{
+						 message:"username does not exits"
+				});
+
       }
     }
     });
