@@ -17,10 +17,7 @@ module.exports.login = function(req,res){
         var ans=password.localeCompare(results[0].Passwordd)
         //const comparision = await bcrypt.compare(password, results[0].Passwordd)
         if(ans==0){
-            res.send({
-              "code":200,
-              "success":"login sucessfull"
-            })
+            res.redirect("/profile");
         }
         else{
           console.log(results,password,results[0].Passwordd,ans)

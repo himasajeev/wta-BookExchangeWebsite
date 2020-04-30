@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+    <form action=  "/addbook" role="form"  method="post" enctype="multipart/form-data">
+       <% if (message.length > 0) { %>
+         <%= message %>
+         <%}%>
+     <input type="text" name="title">
+     <input type="text" name="author">
+    <input type="file" name="image" >
+    <input type="price" name="price">
+    <input type="hidden" name="username" value="<%=username%>">
+    <button type="submit" name="submit">Submit</button>
+    </form>
+
+  </body>
+</html>
