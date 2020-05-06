@@ -13,25 +13,21 @@ module.exports.login = function(req,res){
       })
     }else{
       if(results.length >0){
-        console.log(results)
-        var ans=password.localeCompare(results[0].Passwordd)
-        //const comparision = await bcrypt.compare(password, results[0].Passwordd)
-        if(ans==0){
-            res.redirect("/profile");
-        }
-        else{
-          console.log(results,password,results[0].Passwordd,ans)
-          res.render("login.ejs",{
-               message:"username and password does not match"
-          });
-        }
+        console.log(results);
+				bcrypt.compare(password,results[0].Passwordd,function(err,result){
+         if(result == true)
+           res.redirect("/profile");
+					 else{
+	           console.log(results,password,results[0].Passwordd);
+	           res.render("login.ejs",{
+	                message:"username and password does not match"
+	           });}
+			});
       }
       else{
 				res.render("login.ejs",{
 						 message:"username does not exits"
-				});
-
-      }
+				});}
     }
     });
 };

@@ -70,7 +70,7 @@ CREATE TABLE `user` (
   `Username` varchar(45) NOT NULL,
   `Fname` varchar(45) NOT NULL,
   `Lname` varchar(45) NOT NULL,
-  `Passwordd` varchar(45) NOT NULL,
+  `Passwordd` varchar(200) NOT NULL,
   `email` varchar(45) NOT NULL,
   PRIMARY KEY (`Username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

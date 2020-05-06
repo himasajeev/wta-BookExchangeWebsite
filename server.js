@@ -26,7 +26,8 @@ app.get("/signup",function(req,res){
 });
 
 app.get("/profile",function(req,res){
-  res.render("profile.ejs");
+  //get username here as cookie?
+  res.render("profile.ejs",{username:"nithya0903"});
 });
 app.post("/addbook",addbook.addbook);
 app.post("/signup",register.register);
