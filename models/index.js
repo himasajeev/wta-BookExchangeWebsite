@@ -4,26 +4,24 @@ const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
 const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
+const config = require('../config/config');
 const db = {};
+console.log(config)
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
+const sequelize=new Sequelize(config.db.database,config.db.username,config.db.password,{
+  dialect:'mysql',
+  host:config.db.host
+})
 
 fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
-  })
-  .forEach(file => {
-    const model = sequelize['import'](path.join(__dirname, file));
-    db[model.name] = model;
-  });
+    .readdirSync(__dirname)
+    .filter(file => {
+      return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+    })
+    .forEach(file => {
+      const model = sequelize['import'](path.join(__dirname, file));
+      db[model.name] = model;
+    });
 
 Object.keys(db).forEach(modelName => {
   if (db[modelName].associate) {
@@ -33,5 +31,21 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+//ASSOCIATIONS
+db.book_belongs_to.belongsTo(db.user)
+db.book_belongs_to.belongsTo(db.book)
+db.book_bought_by.belongsTo(db.user)
+db.book_bought_by.belongsTo(db.book)
+
+
+sequelize
+    .authenticate()
+    .then(()=>{
+      console.log("connected");
+    })
+    .catch(err=>{
+      console.error(err);
+    });
 
 module.exports = db;

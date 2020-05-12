@@ -1,46 +1,29 @@
-var bcrypt = require("bcrypt");
-const saltRounds = 10;
+'use strict';
 
-
-module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
-    // The email cannot be null, and must be a proper email before creation
+module.exports=(sequelize,Datatypes)=>{
+  return sequelize.define('user',{
     username:{
-      type:DataTypes.STRING,
+      type:Datatypes.STRING,
+      allowNull:false
+    },
+    firstname:{
+      type:Datatypes.STRING,
+      allowNull:false
+    },
+    lastname:{
+      type:Datatypes.STRING,
+      allowNull:false
+    },
+    email:{
+      type:Datatypes.STRING,
       allowNull:false,
-      unique:true,
+      isEmail:true
     },
-    Fname:{
-      type:DataTypes.STRING,
-      allowNull:false,
-      unique:false
-    },
-    Lname: {
-      type:DataTypes.STRING,
-      allowNull:true,
-      unique:false
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
-    },
-    // The password cannot be null
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    }
-  });
-  User.prototype.validPassword = function(password) {
-      return bcrypt.compareSync(password, this.password);
-    };
-  User.beforeCreate(function(user) {
-    //console.log(user.password+" "+saltRounds);
-    console.log(user);
-        user.password = bcrypt.hashSync(user.password, saltRounds);
-      });
-      return User;
-    };
+    password:{
+      type:Datatypes.STRING,
+      allowNull:false
+    }},{
+    timestamps:false,
+    freezeTableName:true
+  })
+}
