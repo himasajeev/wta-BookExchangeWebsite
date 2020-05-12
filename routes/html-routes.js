@@ -9,14 +9,17 @@ module.exports = function(app)
     res.sendFile(path.join(__dirname,'../public/htmlfiles/main.html'));
   });
   app.get("/login",function(req,res){
+
     if(req.user)
     res.redirect("/profile");
     //console.log(req.flash("error"));
+    else
     res.render("login.ejs",{message:req.flash("error")});
   });
   app.get("/signup",function(req,res){
     if(req.user)
     res.redirect("/profile");
+    else
     res.render("signup.ejs",{message:" "});
   });
   app.get("/profile",isAuthenticated,function(req,res){
