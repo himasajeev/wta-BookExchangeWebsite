@@ -5,8 +5,7 @@ module.exports = function(app)
 {
 
   app.get("/",function(req,res){
-    if(req.user)
-    res.redirect("/profile");
+
     res.sendFile(path.join(__dirname,'../public/htmlfiles/main.html'));
   });
   app.get("/login",function(req,res){
@@ -15,7 +14,6 @@ module.exports = function(app)
     //console.log(req.flash("error"));
     res.render("login.ejs",{message:req.flash("error")});
   });
-
   app.get("/signup",function(req,res){
     if(req.user)
     res.redirect("/profile");
@@ -27,5 +25,10 @@ module.exports = function(app)
     const username = req.user.username;
     res.render("profile.ejs",{username:username});
   });
+  app.get("/logout",function(req,res){
+   req.logout();
+   res.redirect("/");
+
+});
 
 };
