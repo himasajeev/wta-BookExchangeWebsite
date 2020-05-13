@@ -20,7 +20,8 @@ module.exports = function(app)
     if(req.user)
     res.redirect("/profile");
     else
-    res.render("signup.ejs",{message:" "});
+    {console.log(req.user);
+    res.render("signup.ejs",{message:" "});}
   });
   app.get("/profile",isAuthenticated,function(req,res){
     //get username here as cookie?
@@ -28,6 +29,10 @@ module.exports = function(app)
     const username = req.user.username;
     res.render("profile.ejs",{username:username});
   });
+  app.get("/addbook",isAuthenticated,function(req,res)
+  {let username = req.user.username;
+    res.render("addbook.ejs",{message:"",username:username});
+  })
   app.get("/logout",function(req,res){
    req.logout();
    res.redirect("/");

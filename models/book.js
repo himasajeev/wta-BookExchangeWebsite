@@ -13,7 +13,17 @@ module.exports=(sequelize,Datatypes)=>{
             available:{
                 type:Datatypes.BOOLEAN,
                 default:true
-            }},
+            },
+            owner:{
+              type:Datatypes.STRING
+            },
+            imagepath:{
+              type:Datatypes.STRING
+            },
+            price:{
+              type:Datatypes.STRING
+            }
+          },
         {
             timestamps:false,
             freezeTableName:true
