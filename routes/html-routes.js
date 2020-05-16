@@ -5,21 +5,23 @@ module.exports = function(app)
 {
 
   app.get("/",function(req,res){
-    if(req.user)
-    res.redirect("/profile");
+
     res.sendFile(path.join(__dirname,'../public/htmlfiles/main.html'));
   });
   app.get("/login",function(req,res){
+
     if(req.user)
     res.redirect("/profile");
     //console.log(req.flash("error"));
+    else
     res.render("login.ejs",{message:req.flash("error")});
   });
-
   app.get("/signup",function(req,res){
     if(req.user)
     res.redirect("/profile");
-    res.render("signup.ejs",{message:" "});
+    else
+    {console.log(req.user);
+    res.render("signup.ejs",{message:" "});}
   });
   app.get("/profile",isAuthenticated,function(req,res){
     //get username here as cookie?
@@ -27,5 +29,14 @@ module.exports = function(app)
     const username = req.user.username;
     res.render("profile.ejs",{username:username});
   });
+  app.get("/addbook",isAuthenticated,function(req,res)
+  {let username = req.user.username;
+    res.render("addbook.ejs",{message:"",username:username});
+  })
+  app.get("/logout",function(req,res){
+   req.logout();
+   res.redirect("/");
+
+});
 
 };
