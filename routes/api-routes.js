@@ -3,16 +3,12 @@ var passport = require("../config/passport");
 var path = require("path");
 var ejs = require("ejs");
 var bodyParser = require("body-parser");
-const userExists=require("./userExists")
 
 module.exports = function(app) {
   app.post('/login', (req, res) => passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login',failureFlash:true })(req, res));
 
   app.post("/signup", function(req, res) {
       console.log(req.body);
-    result=userExists(req.body.username,req.body.mailid)
-    if(result===1) res.send("username already taken try another username")
-      if(result===2) res.send("email already taken try another email")
       db.User.create({
         username:req.body.username,
         Fname:req.body.fn,
