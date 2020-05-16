@@ -7,7 +7,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 header{
-    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url("/images/book6.jpg");
+    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(book6.jpg);
     height:100vh;
     background-size: cover;
     background-position: center;
@@ -49,7 +49,7 @@ header{
   }
 
   .in{
-      background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("/images/book2.jpeg");
+      background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(book2.jpeg);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -124,4 +124,186 @@ header{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 40px;
     margin: 10% 8%;
+  }
+
+
+  .profile section{
+    float: left;
+    height: 100vh;
+    width: 30%;
+    background-color: rgb(190, 73, 73);
+  }
+  .profile article{
+      float: right;
+      height: 100vh;
+      width: 70%;
+  }
+  .profile section h1{
+    font-size: 40px;
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 5%;
+  }
+  .profile section li{
+    margin: 5% 32%;
+  }
+  .profile article{
+    text-align: center;
+  }
+
+  .addbook{
+    background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(uploadbk.jpg);
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100vh;
+  }
+  .addbook form{
+    height: 70%;
+    width: 28%;
+    position: absolute;
+    top: 55%;
+    left:25%;
+    transform: translate(-50%,-50%);
+    color: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    opacity: 0.8;
+  }
+  .addbook form input{
+    align-items: center;
+    border-radius: 2%;
+    border: 0px solid whitesmoke;
+    margin: 3% 5%;
+    padding: 2.5%;
+    background-color: rgb(26, 24, 25);
+    color: whitesmoke;
+    font-size: 100%;
+  }
+  .addbook form button{
+    margin:10% 45%;
+    padding: 2%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+  }
+  .addbook form button:hover{
+    margin:10% 45%;
+    padding: 2%;
+    transform: translate(-50%,-50%);
+    cursor: pointer;
+    background-color: whitesmoke;
+    border: 2px solid whitesmoke;
+    color: black;
+  }
+  @media (max-width:1200px) and (min-width:800px){
+    .title h1{
+        font-size: 52px;
+    }
+    .title p{
+        margin-top: 5%;
+        padding-left: 25%;
+        font-size: 15px;
+      }
+      .login-box{
+        height: 47%;
+        width: 32%;
+    }
+    .signup-box{
+      height: 70%;
+      width: 32%;
+    }
+  }
+
+  @media (max-width:799px) and (min-width:650px)
+  {
+    ul{
+        float: left;
+        list-style-type: none;
+    }
+    ul li{
+        display: list-item;
+        margin: 25px 5px;
+    }
+    .title{
+        position: absolute;
+        top: 15%;
+        left: 48%;
+    }
+    .title h1{
+        font-size: 40px;
+    }
+    .title p{
+      margin-top: 5%;
+      padding-left: 0%;
+      font-size: 15px;
+    }
+    .login-box{
+        height: 45%;
+        width: 40%;
+    }
+    .signup-box{
+      height: 70%;
+      width: 40%;
+    }
+    .addbook form input{
+      margin: 5% 7%;
+      padding: 5%;
+    }
+    .addbook form button{
+      margin:25% 40%;
+      padding: 6% 6%;
+    }
+    .addbook form button:hover{
+      margin:25% 40%;
+      padding: 6% 6%;
+    }
+  }
+
+  @media (max-width:650px)
+  {
+    ul{
+        float: left;
+        list-style-type: none;
+    }
+    ul li{
+        display: list-item;
+        margin: 25px 5px;
+    }
+    .title{
+        position: absolute;
+        top: 15%;
+        left: 48%;
+    }
+    .title h1{
+        font-size: 40px;
+    }
+    .title p{
+      margin-top: 5%;
+      padding-left: 0%;
+      font-size: 15px;
+    }
+    .login-box{
+        height: 48%;
+        width: 52%;
+    }
+    .button{
+        margin-top: 10%;
+    }
+    .signup-box{
+      height: 70%;
+      width: 52%;
+    }
+    .addbook form input{
+      margin: 5% 7%;
+      padding: 5%;
+    }
+    .addbook form button{
+      margin:20% 40%;
+      padding: 6% 5%;
+    }
+    .addbook form button:hover{
+      margin:20% 40%;
+      padding: 6% 5%;
+    }
   }
