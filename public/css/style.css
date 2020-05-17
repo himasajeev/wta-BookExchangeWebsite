@@ -7,7 +7,7 @@
     font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
 header{
-    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url(book6.jpg);
+    background-image:linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.6)), url("/images/book6.jpg");
     height:100vh;
     background-size: cover;
     background-position: center;
@@ -49,7 +49,7 @@ header{
   }
 
   .in{
-      background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(book2.jpeg);
+      background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url("/images/book2.jpeg");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -152,7 +152,7 @@ header{
   }
 
   .addbook{
-    background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(uploadbk.jpg);
+    background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url("/images/uploadbk.jpg");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;

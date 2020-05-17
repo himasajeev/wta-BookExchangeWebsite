@@ -3,7 +3,7 @@ var flash = require("connect-flash");
 var LocalStrategy = require("passport-local").Strategy;
 
 
-var db = require("../models");
+var db = require("../server/models");
 passport.use(new LocalStrategy(
 
   {passReqToCallback : false,

@@ -1,12 +1,12 @@
 var path = require("path");
 var ejs = require("ejs");
-var isAuthenticated = require("../config/middleware/isAuthenticated.js");
+var isAuthenticated = require("../../config/middleware/isAuthenticated.js");
 module.exports = function(app)
 {
 
   app.get("/",function(req,res){
 
-    res.sendFile(path.join(__dirname,'../public/htmlfiles/main.html'));
+    res.sendFile(path.join(__dirname,'../../public/htmlfiles/main.html'));
   });
   app.get("/login",function(req,res){
 
