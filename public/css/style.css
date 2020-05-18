@@ -150,7 +150,13 @@ header{
   .profile article{
     text-align: center;
   }
-
+  .profile  div ul li a{
+    color: rgb(190, 73, 73);
+  }
+ .profile div ul li a:hover{
+    color: whitesmoke;
+    background-color: rgb(190, 73, 73);
+ }
   .addbook{
     background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url("/images/uploadbk.jpg");
       background-position: center;
@@ -196,6 +202,25 @@ header{
     border: 2px solid whitesmoke;
     color: black;
   }
+  .addbook h1{
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 5%;
+  }
+  .about .hdr{
+    background: rgb(29, 29, 87);
+    color: whitesmoke;
+    height: 170px;
+  }
+  .about .content{
+    height: 430px;
+  }
+  .about .team{
+    background-color: rgb(29, 29, 87);
+    color: whitesmoke;
+    width: 100%;
+  }
+
   @media (max-width:1200px) and (min-width:800px){
     .title h1{
         font-size: 52px;
