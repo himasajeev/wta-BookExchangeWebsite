@@ -150,6 +150,13 @@ header{
   .profile article{
     text-align: center;
   }
+  .profile  div ul li a{
+    color: rgb(190, 73, 73);
+}
+.profile div ul li a:hover{
+    color: whitesmoke;
+    background-color: rgb(190, 73, 73);
+}
 
   .addbook{
     background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(uploadbk.jpg);
@@ -196,6 +203,46 @@ header{
     border: 2px solid whitesmoke;
     color: black;
   }
+  .addbook h1{
+    color: whitesmoke;
+    text-align: center;
+    padding-top: 5%;
+  }
+  .about .hdr{
+    background:linear-gradient(rgba(120, 141, 62, 0.6),rgba(98, 116, 49, 1));
+    opacity: 0.9;
+    color: whitesmoke;
+    height: 15vh;
+  }
+  .about .hdr h1{
+    text-align: center;
+    font-size: 45px;
+    padding-top: 2%;
+  }
+  .about .content{
+    height: 58vh;
+  }
+  .about .team{
+    background-color: rgb(77, 92, 38);
+    color: whitesmoke;
+    width: 100%;
+    padding-bottom: 0%;
+    height: 27vh;
+  }
+  .about .team .member{
+    width: 100%;
+    padding-left: 5%;
+    margin-left: 25%;
+  }
+  .about .content article{
+    width: 40%;
+    margin: 2% 4%;
+    float: left;
+  }
+  .about img{
+    float:right;
+  }
+
   @media (max-width:1200px) and (min-width:800px){
     .title h1{
         font-size: 52px;

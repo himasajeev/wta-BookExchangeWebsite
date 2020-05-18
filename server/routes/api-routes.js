@@ -1,5 +1,5 @@
 var db = require("../models");
-var passport = require("../config/passport");
+var passport = require("../../config/passport");
 var path = require("path");
 var ejs = require("ejs");
 var multer  = require('multer')
