@@ -17,6 +17,29 @@ const create = async (req,res) =>{
        return  res.status(422).json({error:err}); 
         });
 }
+const update = (req,res) =>{
+  const userid = req.params.userid;
+  //write code for patching
+}
+const Delete = (req,res)=>{
+  const userid = req.params.userid;
+  //write code for patching
+}
+// const userByID = async (req, res, next, id) => {
+//   try {
+//     let user = await User.findById(id)
+//     if (!user)
+//       return res.status('400').json({
+//         error: "User not found"
+//       })
+//     req.profile = user
+//     next()
+//   } catch (err) {
+//     return res.status('400').json({
+//       error: "Could not retrieve user"
+//     })
+//   }
+// }
 const read = async (req, res) => {
     const username=req.params.userid
     const user=await db.User.findOne({
@@ -29,4 +52,4 @@ const read = async (req, res) => {
     else
     return res.status(404).send(" User not found");
   }
- export default {create,read}
+ export default {create,read,update,Delete}

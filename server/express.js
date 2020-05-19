@@ -4,7 +4,8 @@ import session from "express-session"
 import bodyParser from 'body-parser'
 import passport from "../config/passport"
 import userRoutes from "./routes/userRoute"
-
+import authRoutes from "./routes/authRoutes"
+import bookRoutes from "./routes/bookRoutes"
 const app=express();
 
 app.set("view-engine","ejs");
@@ -15,9 +16,8 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 app.use(passport.initialize());
 app.use(passport.session());
 app.use("/users",userRoutes);
+app.use("/auth",authRoutes)
+app.use("/books",bookRoutes)
 
-//temporarily handle login logout 
-import authcntl from "./controllers/authcontroller"
-app.post("/login",authcntl.signin);
-app.get("/logout",authcntl.signout);
+
 export default app

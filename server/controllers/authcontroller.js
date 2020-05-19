@@ -27,9 +27,10 @@ const signin = async (req,res) =>{
     
 
 }
+
 const hasAuthorization = (req, res, next) => { //middleware for authorization
 
-    const authorized = req.user.username && req.params.userid ;
+    const authorized = req.user.username == req.params.userid ;
     console.log(req.user.username,req.params.userid);
     
     if (!(authorized)) {
