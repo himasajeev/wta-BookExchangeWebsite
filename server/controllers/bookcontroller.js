@@ -3,15 +3,40 @@
 const {QueryTypes} = require('sequelize');
 const db = require("../models");
 const list = (req,res)=>{
-    // write query to list some books to populate feed like the latest 10 books pushed 
-    res.status(501).json("under construction!")
+    return  db.sequelize.query('SELECT * FROM book ORDER BY id DESC LIMIT 10 ')
+        .then(books=>{
+                return res.status(200).json(books)
+        })
+        .catch(err=>{
+            throw err
+        })
 }
 
 const addBook = (req,res) =>{
-    const username = req.user.username; 
-    //add book with owner as this particular user
-    //i will handle the image part later,for now populate image path with some const
-    res.status(501).json("under construction!")
+    const username = req.user.username;
+    let User=null
+    return db.User.findOne({username})
+        .then(user=>{
+            User=user
+            return db.book.create({
+                bookname:req.body.title,
+                author:req.body.author,
+                price:req.body.price,
+                available:1
+            })
+        })
+        .then(results=> {
+            db.book_belongs_to.create({
+                bookid:results.id,
+                Userid:User.id
+            })
+        console.log(results)
+        return res.status(200).json({
+            message: "Successfully added the book!"
+        })
+            .catch(err=>{
+            throw err;})
+    })
 }
 const update = (req,res) =>{
     const book = req.book; //this contains the original book
@@ -19,16 +44,46 @@ const update = (req,res) =>{
     // update those fields,maintain everything else
     res.status(501).json("under construction!")
 }
-const Delete = (req,res)=>{
-    const book = req.book; //this contains the original book
-    //delete this particular book from db
-    //Make sure to  cascade delete from associated tables too
-    
-    res.status(501).json("under construction!")
+const Delete =async (req,res)=>{
+    const bookid = req.book.id;
+    const userid=req.user.userid;
+    await db.sequelize.query(
+        'UPDATE book WHERE id =? SET available=0',
+        {
+            replacements: [bookid],
+            type: QueryTypes.SELECT
+        }
+    ).then(books => {
+        db.book_bought_by.create({
+            bookid:bookid,
+            Userid:userid
+            })
+        })
+        .then(books => {
+            //console.log(books)
+            return res.status(200).json(books);
+
+        })
+         .catch(function(err) {
+        return  res.status(422).json({error:err});
+    });
 }
-const ownerInfo = (req,res)=>{
+
+const ownerInfo = (req,res) =>{
     const book = req.book;
-    //return name and contact info of owner
+    return db.sequelize.query(
+        'SELECT * FROM User WHERE id IN (select Userid from book_belongs_to where bookid=?)',
+        {
+            replacements: [book],
+            type: QueryTypes.SELECT
+        }
+    ).then(books => {
+        //console.log(books)
+        return res.status(200).json(books);
+
+    }).catch(function(err) {
+        return  res.status(422).json({error:err});
+    });
     res.status(501).json("under construction!")
 }
 const read = (req,res)=>{  
@@ -36,9 +91,9 @@ const read = (req,res)=>{
     res.status(200).json(book);
 }
 
-const FindBookByName =async function (req,res) {
+const FindBookByName = (req,res)=> {
     const bookname = req.params.bookname;
-    await db.sequelize.query(
+    return db.sequelize.query(
         'SELECT * FROM book WHERE bookname LIKE :search_name',
         {
             replacements: {search_name: '%' + bookname + '%'},
@@ -116,11 +171,11 @@ const FindBookBySub = async function (req,res) {
 }
 
 const  BooksOfUser =async function(req,res) {           
-    const userid = req.params.id;
+    const username = req.params.username;
     await db.sequelize.query(
-        'SELECT * FROM book WHERE id IN (SELECT bookId from book_belongs_to where UserId=?)',
+        'SELECT * FROM book WHERE id IN (SELECT bookId from book_belongs_to where UserId IN (SELECT id FROM User WHERE username=?))',
         {
-            replacements: [userid],
+            replacements: [username],
             type: QueryTypes.SELECT
         }
     ).then(books => {
