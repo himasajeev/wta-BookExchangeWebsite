@@ -17,9 +17,6 @@ module.exports=(sequelize,Datatypes)=>{
             subject:{
               type:Datatypes.STRING
             },
-            owner:{
-              type:Datatypes.STRING
-            },
             imagepath:{
               type:Datatypes.STRING
             },

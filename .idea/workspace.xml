@@ -3,7 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="64959171-7cd1-4b2d-bae8-59999d226a5a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/bookcontroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/bookcontroller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/controllers/usercontroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/usercontroller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/book.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/book.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +44,7 @@
       <workItem from="1590253867842" duration="1813000" />
       <workItem from="1590257311325" duration="1814000" />
       <workItem from="1590296659424" duration="1214000" />
+      <workItem from="1590494532553" duration="12602000" />
     </task>
     <servers />
   </component>

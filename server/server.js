@@ -1,6 +1,8 @@
 
 import app from './express'
 import db from  "./models"
+import {list} from "./controllers/bookcontroller"
+
 
 
 
@@ -12,6 +14,6 @@ db.sequelize.sync().then(function() {
         console.log(err);
         else
         console.log("server started on 4000");
+
     });
     });
-    
