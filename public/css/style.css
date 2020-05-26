@@ -144,26 +144,57 @@ header{
     text-align: center;
     margin-top: 5%;
   }
+  .profile section ul{
+    margin: 4%;
+  }
   .profile section li{
-    margin: 5% 32%;
+    margin: 4% 32%;
+    color: antiquewhite;
   }
   .profile article{
     text-align: center;
   }
   .profile  div ul li a{
     color: rgb(190, 73, 73);
-}
-.profile div ul li a:hover{
+  }
+  .profile div ul li a:hover{
     color: whitesmoke;
     background-color: rgb(190, 73, 73);
-}
+  }
+  .profile .bkdetails{
+    border-collapse: collapse;
+    margin: 10% 7%;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+  }
+  .profile .bkdetails thead tr{
+    color: whitesmoke;
+    background-color: rgb(190, 73, 73);
+    text-align: left;
+    font-weight: bold;
+  }
+  .profile .bkdetails th,.profile .bkdetails td{
+    padding: 12px 15px;
+  }
+  .profile .bkdetails tbody tr{
+    border-bottom: 1px solid rgb(190, 73, 73);
+  }
+  .profile .bkdetails tbody tr:nth-of-type(even){
+    background-color: rgb(247, 206, 206);
+  }
+  .profile .bkdetails tbody tr:last-of-type{
+    border-bottom: 2px solid rgb(190, 73, 73);
+  }
 
   .addbook{
     background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(uploadbk.jpg);
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
   }
   .addbook form{
     height: 70%;
@@ -243,6 +274,66 @@ header{
     float:right;
   }
 
+  .display{
+    background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(addbk3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  .display .result{
+    position: absolute;
+    top: 35%;
+    left:50%;
+    transform: translate(-50%,-50%);
+  }
+  .display .result #title{
+    background: linear-gradient(rgba(3, 44, 78, 0.5),rgba(101, 132, 145, 0.3));
+    width: 50%;
+    padding: 3%;
+    font-size: 26px;
+  }
+  .display .result .detail{
+    background-color: rgb(180, 205, 228);
+    width: 50%;
+    padding: 2%;
+  }
+  .display .result p{
+    padding: 3%;
+    font-size: 19px;
+  }
+  .display .result #title img{
+    float: right;
+    width: 55%;
+    border-radius: 50%;
+    padding: 0%;
+    border: 4px solid whitesmoke;
+  }
+  .error{
+    background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(addbk2.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  .error p{
+    font-size: 35px;
+    text-align: center;
+    color: rgb(31, 41, 59);
+  }
+  .error #err{
+    font-size: 80px;
+    text-align: center;
+    padding-top: 7%;
+    color: rgb(31, 41, 59);
+  }
+  .search{
+    background-image: linear-gradient(rgba(197, 188, 199, 0.5),rgba(255,255,255,0.3)),url(searchbg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
   @media (max-width:1200px) and (min-width:800px){
     .title h1{
         font-size: 52px;
