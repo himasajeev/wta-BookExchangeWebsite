@@ -3,7 +3,8 @@ import passport from "../../config/passport"
 
  
 const signin = async (req,res) =>{
-  console.log(req)
+  console.log("inside signin")
+  console.log(req.user)
     passport.authenticate('local', function(err, user, info) {
         if (err) 
         {  console.log("chpt 1")

@@ -180,7 +180,7 @@ const FindBookBySub = async function (req,res) {
 const  BooksOfUser =async function(req,res) {
     const username = req.params.username;
     await db.sequelize.query(
-        'SELECT * FROM book WHERE id IN (SELECT bookId from book_belongs_to where UserUsername =?)',
+        'SELECT * FROM book WHERE id IN (SELECT bookId from book_belongs_to where username =?)',
         {
             replacements: [username],
             type: QueryTypes.SELECT

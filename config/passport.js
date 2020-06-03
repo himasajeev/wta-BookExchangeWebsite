@@ -10,7 +10,8 @@ passport.use(new LocalStrategy(
     //passwordField : 'password'
   },
   function(username, password, done) {
-//console.log(username+password);
+    console.log("inside passport")
+console.log(username+password);
     db.User.findOne({
       where: {
         username: username
