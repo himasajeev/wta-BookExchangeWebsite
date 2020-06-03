@@ -2,13 +2,104 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64959171-7cd1-4b2d-bae8-59999d226a5a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/MainRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/MainRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.9.6.development.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.cache/@babel/register/.babel.7.9.6.development.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/buffer-equal-constant-time/.npmignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/buffer-equal-constant-time/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/buffer-equal-constant-time/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/buffer-equal-constant-time/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/buffer-equal-constant-time/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/buffer-equal-constant-time/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/buffer-equal-constant-time/test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ecdsa-sig-formatter/CODEOWNERS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ecdsa-sig-formatter/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ecdsa-sig-formatter/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ecdsa-sig-formatter/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ecdsa-sig-formatter/src/ecdsa-sig-formatter.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ecdsa-sig-formatter/src/ecdsa-sig-formatter.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/ecdsa-sig-formatter/src/param-bytes-for-alg.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/decode.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/lib/JsonWebTokenError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/lib/NotBeforeError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/lib/TokenExpiredError.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/lib/psSupported.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/lib/timespan.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/node_modules/ms/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/node_modules/ms/license.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/node_modules/ms/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/node_modules/ms/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/sign.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jsonwebtoken/verify.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jwa/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jwa/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jwa/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jwa/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jws/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jws/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jws/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jws/lib/data-stream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jws/lib/sign-stream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jws/lib/tostring.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jws/lib/verify-stream.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jws/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/jws/readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.includes/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.includes/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.includes/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.includes/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isboolean/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isboolean/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isboolean/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isboolean/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isinteger/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isinteger/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isinteger/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isinteger/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isnumber/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isnumber/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isnumber/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isnumber/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isplainobject/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isplainobject/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isplainobject/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isplainobject/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isstring/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isstring/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isstring/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.isstring/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.once/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.once/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.once/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/lodash.once/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/docs/migrating.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/lib/auth_header.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/lib/extract_jwt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/lib/helpers/assign.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/lib/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/lib/strategy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/lib/verify_jwt.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/test/auth_header-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/test/bootstrap.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/test/extrators-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/test/mock_request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/test/strategy-init-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/test/strategy-requests-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/test/strategy-validation-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/test/strategy-verify-test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/node_modules/passport-jwt/test/testdata.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/server/controllers/bookcontroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/bookcontroller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/controllers/usercontroller.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/controllers/usercontroller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/book.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/book.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/models/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/models/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

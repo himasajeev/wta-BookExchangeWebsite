@@ -5,8 +5,9 @@ const db = require("../models");
 
 
  const list= (req,res)=>{
-    return  db.sequelize.query('SELECT * FROM book ORDER BY id DESC LIMIT 10 ')
+    return  db.sequelize.query('SELECT * FROM book ORDER BY id DESC LIMIT 10 ',{ type: QueryTypes.SELECT })
         .then(books=>{
+                console.log(books)
                 return res.status(200).json(books)
         })
         .catch(err=>{
@@ -180,7 +181,7 @@ const FindBookBySub = async function (req,res) {
 const  BooksOfUser =async function(req,res) {
     const username = req.params.username;
     await db.sequelize.query(
-        'SELECT * FROM book WHERE id IN (SELECT bookId from book_belongs_to where username =?)',
+        'SELECT * FROM book WHERE id IN (SELECT bookId from book_belongs_to where UserUsername =?)',
         {
             replacements: [username],
             type: QueryTypes.SELECT
@@ -193,5 +194,4 @@ const  BooksOfUser =async function(req,res) {
         return  res.status(422).json({error:err});
          });
 }
-
 export default {FindBookByAuthor, FindBookByName, FindBookBySub, BooksOfUser,isOwner,bookById,read,list,addBook,update,Delete,ownerInfo}
