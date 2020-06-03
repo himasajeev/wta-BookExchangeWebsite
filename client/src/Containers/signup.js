@@ -21,7 +21,7 @@ const Signup = ()=>{
        event.preventDefault();
        console.log(user)
    }
-    return (<div>
+    return (<div className="in">
         <OuterNavbar />
         <div className="signup-box">
               <h1>Sign up</h1>

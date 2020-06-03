@@ -39,7 +39,7 @@ const Login = ()=>{
   }
     return (
 
-        <div>
+        <div className="in">
             <OuterNavbar />
 
             <div className="login-box">

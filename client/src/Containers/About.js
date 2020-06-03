@@ -1,9 +1,12 @@
 import React from 'react'
 import OuterNavbar from '../Components/OuterNavbar'
 import '../../src/Style.css'
+import image from "../../src/assets/images/bookswap.jpg"
 const About = ()=>{
+ 
 return (
-    <body class="about">
+    
+    <div className="about">
        
           <OuterNavbar />
           <h1>ABOUT</h1>
@@ -21,7 +24,8 @@ return (
             </p>
             </article>
             <section>
-                <img src="bookswap.jpg" alt="img" />
+            
+                <img src={image} alt="img" />
             </section>
         </div>
         <div>
@@ -40,7 +44,7 @@ return (
                 </ul></li>
             </ul>
         </div>
-    </body>
+    </div>
 )
 
 }
