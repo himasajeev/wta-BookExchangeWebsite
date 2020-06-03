@@ -1,4 +1,5 @@
 import express from 'express'
+import cors from 'cors' //fix at deplymnt time?
 import path from 'path'
 import session from "express-session"
 import bodyParser from 'body-parser'
@@ -18,6 +19,6 @@ app.use(passport.session());
 app.use("/users",userRoutes);
 app.use("/auth",authRoutes)
 app.use("/books",bookRoutes)
-
+app.use(cors())
 
 export default app

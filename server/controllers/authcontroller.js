@@ -3,24 +3,28 @@ import passport from "../../config/passport"
 
  
 const signin = async (req,res) =>{
+  console.log(req)
     passport.authenticate('local', function(err, user, info) {
         if (err) 
-        {  return res.status('401').json({
+        {  console.log("chpt 1")
+          return res.status('401').json({
             error: "Could not sign in"
           })
          }
         if (!user) 
-        { return res.status('401').json({
+        { console.log("chpt 2")
+          return res.status('200').json({
             error: "User not found"
           }) 
         }
         req.logIn(user, function(err) 
         {
           if (err)
-           { return res.status('401').send({
+           { console.log("chpt 3")
+             return res.status('200').send({
             error: "Email and password don't match."
           })
-        }
+        }console.log("chpt 4")
           return res.status('200').send("Successful");
         });
     })(req, res);
