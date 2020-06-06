@@ -16,26 +16,36 @@ const db = require("../models");
 }
 
 const addBook = (req,res) =>{
+    
     const username = req.user.username;
+    console.log(username);
     return db.User.findOne({username})
         .then(user=>{
             if(!user){
                 return res.status(200).json({message:"user not found"})
             }
-            return db.book.create({
-                bookname:req.book.title,
-                author:req.book.author,
-                price:req.book.price,
+            
+           
+           db.book.create({
+                bookname:req.body.title,
+                author:req.body.author,
+                price:req.body.price,
                 available:1,
-                subject:req.book.sub
+                subject:req.body.sub
             }).then(rslts=>
             {   console.log(rslts)
-                return db.book_belongs_to.create({
+                 db.book_belongs_to.create({
                     bookId:rslts.id,
                     UserUsername:req.user.username
                 })
+                .then(()=>{
+                    return res.status(200).json({message:"book added successfully"})
+                })
+                .catch(err=>{
+                    return  res.status(422).json({error:err});
+                })
             })
-            return res.status(200).json({message:"book added successfully"})
+            
         })
             .catch(err=>{
                 return  res.status(422).json({error:err});
@@ -54,23 +64,18 @@ const update = (req,res) =>{
 const Delete = (req,res)=>{
 
     const bookid = req.book.id;
-    const username=req.user.username;
-    return db.sequelize.query(
+     db.sequelize.query(
         'UPDATE book SET available=0 WHERE id =? ',
         {
             replacements: [bookid],
             type: QueryTypes.UPDATE
         }
-    ).then(books => {
-        return db.book_bought_by.create({
-            bookId:bookid,
-            UserUsername:username
-            })
-        }).then(books => {
-        //console.log(books)
-        return res.status(200).json(books);
-    })
-         .catch(err=> {
+    ).then(()=>{
+        return res.status(200).json("success");
+    }
+        
+    )
+     .catch(err=> {
              console.log(err)
         return  res.status(422).json({error:err});
     });
@@ -179,7 +184,8 @@ const FindBookBySub = async function (req,res) {
 }
 
 const  BooksOfUser =async function(req,res) {
-    const username = req.params.username;
+    const username = req.params.userid;
+    console.log(username);
     await db.sequelize.query(
         'SELECT * FROM book WHERE id IN (SELECT bookId from book_belongs_to where UserUsername =?)',
         {
@@ -188,6 +194,7 @@ const  BooksOfUser =async function(req,res) {
         }
     ).then(books => {
         console.log(books)
+        console.log("np")
         return res.status(200).json(books);
     }).catch(function(err) {
         console.log(err)

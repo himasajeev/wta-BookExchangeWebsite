@@ -1,12 +1,19 @@
-import React from 'react';
-import {withRouter} from 'react-router-dom';
+import React,{useState} from 'react';
+import {Redirect} from 'react-router-dom';
 
 const Logout = (props) => {
+    const [logged,setLogged] = useState(true);
+    const handleClick =()=>{
     localStorage.removeItem('username');
-    props.history.push('/');
+   // props.history.push('/');
+   setLogged(false);
+    }
+    if(!logged)
     return(
-        <div></div>
+        <Redirect to="/" push={true}/>
     );
+    else
+    return(<button onClick={handleClick}>Log Out</button>);
 }
 
-export default withRouter(Logout);
+export default Logout;

@@ -5,6 +5,8 @@ import About from './Containers/About'
 import Login from './Containers/Login'
 import Signup from './Containers/signup'
 import Profile from './Containers/Profile'
+import Search from './Containers/Search'
+import Addbook from './Containers/Addbook'
 import OtherProfile from './Containers/Otherprofile'
 const MainRouter = ()=>{
 return (<Fragment>
@@ -15,6 +17,8 @@ return (<Fragment>
     <Route path = '/signup' component={Signup} />
     <Route path='/profile' component={Profile} />
     <Route path='/users/:username' component={OtherProfile} />
+    <Route path='/search' component={Search} />
+    <Route path='/addbook' component={Addbook} />
     </Switch>
 </Fragment>)
 

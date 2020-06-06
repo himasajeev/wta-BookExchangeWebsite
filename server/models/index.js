@@ -36,8 +36,8 @@ db.Sequelize = Sequelize;
 
 db.book_belongs_to.belongsTo(db.book)
 db.book_belongs_to.belongsTo(db.User)
-db.book_bought_by.belongsTo(db.book)
-db.book_bought_by.belongsTo(db.User)
+db.cart.belongsTo(db.book)
+db.cart.belongsTo(db.User)
 
 
 module.exports = db;

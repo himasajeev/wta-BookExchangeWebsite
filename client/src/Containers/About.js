@@ -8,8 +8,8 @@ return (
     
     <div className="about">
        
-          <OuterNavbar />
-          <h1>ABOUT</h1>
+          <OuterNavbar/>
+          <h1 >ABOUT</h1>
        
         <div className="content">
             <article>

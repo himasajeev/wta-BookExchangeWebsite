@@ -7,6 +7,7 @@ import passport from "../config/passport"
 import userRoutes from "./routes/userRoute"
 import authRoutes from "./routes/authRoutes"
 import bookRoutes from "./routes/bookRoutes"
+import cartRoutes from "./routes/cartRoute"
 const app=express();
 
 app.set("view-engine","ejs");
@@ -19,6 +20,7 @@ app.use(passport.session());
 app.use("/users",userRoutes);
 app.use("/auth",authRoutes)
 app.use("/books",bookRoutes)
+app.use("/cart",cartRoutes);
 app.use(cors())
 
 export default app

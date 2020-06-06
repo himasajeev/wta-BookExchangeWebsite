@@ -12,8 +12,18 @@ header{
     background-size: cover;
     background-position: center;
   }
+  .navbar {
+    overflow: auto;
+ 
+    /* position: fixed; Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /*Full width */
+  }
+  .inner {
+   background-color:black;
+  }
   ul{
-      float: left;
+      /* float: left; */
       list-style-type: none;
   }
   ul li{
@@ -27,10 +37,61 @@ header{
       border: 1px solid transparent;
       transition: 0.6s ease;
   }
+  .right{
+    float:right;
+  }
   ul li a:hover{
       background-color: white;
       color: rgb(71, 26, 26);
   }
+  .dropdown {
+    overflow: hidden;
+  }
+  
+  /* Dropdown button */
+  .dropdown .dropbtn {
+    font-size: 16px;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; /* Important for vertical align on mobile phones */
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+  
+ 
+  
+  /* Dropdown content (hidden by default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  /* Links inside the dropdown */
+  .dropdown-content li {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  /* Add a grey background color to dropdown links on hover */
+  .dropdown-content li:hover {
+    background-color: #ddd;
+  }
+  
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
   .title{
       position: absolute;
       top: 35%;
@@ -126,8 +187,24 @@ header{
     margin: 10% 8%;
   }
 
+  .profile {
+    background-image: url('./assets/images/book6.jpg');
+  }
+  .main{
+    /* left: 200px; */
+    margin-left: 250px;
+    display: inline-block;
+    flex-direction: row;
+    padding: 0px 10px;
+  }
+  .profile .ownedbooks{
 
-  .profile section{
+  }
+  .book{
+  
+    padding: 10px 10px;
+  }
+  /* .profile section{
     float: left;
     height: 100vh;
     width: 30%;
@@ -187,7 +264,7 @@ header{
   }
   .profile .bkdetails tbody tr:last-of-type{
     border-bottom: 2px solid rgb(190, 73, 73);
-  }
+  } */
 
   .addbook{
     background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url('./assets/images/uploadbk.jpg');
@@ -397,7 +474,31 @@ header{
       padding: 6% 6%;
     }
   }
-
+  .sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 250px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 0; /* Stay on top */
+     /* Stay at the top */
+    left: 0;
+    background-color: #111; /* Black */
+    overflow-x: auto; /* Disable horizontal scroll */
+    
+    padding-top: 20px;
+  }
+  
+  .sidenav h2{
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    color:whitesmoke;
+    /* display: block; */
+  }
+  .sidenav p{
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    color: #2196F3;
+    /* display: block; */
+  }
   @media (max-width:650px)
   {
     ul{

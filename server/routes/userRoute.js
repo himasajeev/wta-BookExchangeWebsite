@@ -12,6 +12,7 @@ router.route("/:userid")
 .get(isAuthenticated, userCtrl.read)
 .patch(isAuthenticated,authCtrl.hasAuthorization,userCtrl.update)
 .delete(isAuthenticated,authCtrl.hasAuthorization,userCtrl.Delete);
+
 //router.param('userid', userCtrl.userByID)
 export default router;
 

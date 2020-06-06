@@ -39,11 +39,11 @@ const hasAuthorization = (req, res, next) => { //middleware for authorization
     console.log(req.user.username,req.params.userid);
     
     if (!(authorized)) {
-      return res.status('403').json({
+      return res.status('400').json({
         error: "User is not authorized"
       })
     }
-    console.log("patch it up!!!");
+    console.log("you are authorized");
     
     next()
   }
