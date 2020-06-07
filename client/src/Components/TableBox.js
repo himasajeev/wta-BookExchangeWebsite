@@ -3,9 +3,11 @@ import Book from "../Components/Book"
 import '../../src/Style.css'
 const TableBox= (props)=>{
     const Books = props.Books;
+    console.log(Books)
+    console.log("dd")
     return (<div>
-        {Books.map((book,id)=>{
-       return <Book key={id}  title={book.bookname} author={book.author} price={book.price} img={book.imagepath}/>
+        {Books.map((book)=>{
+       return <Book key={book.id} id={book.id} title={book.bookname} author={book.author} price={book.price} img={book.imagepath}/>
         })}
     </div>)
 }

@@ -2,7 +2,8 @@
 
 const {QueryTypes} = require('sequelize');
 const db = require("../models");
-
+import formidable from "formidable"
+import fs from "file-system"
 
  const list= (req,res)=>{
     return  db.sequelize.query('SELECT * FROM book ORDER BY id DESC LIMIT 10 ',{ type: QueryTypes.SELECT })
@@ -19,37 +20,61 @@ const addBook = (req,res) =>{
     
     const username = req.user.username;
     console.log(username);
-    return db.User.findOne({username})
+     db.User.findOne({username})
         .then(user=>{
             if(!user){
                 return res.status(200).json({message:"user not found"})
             }
-            
+            else{
+                console.log("inside 2nd")
+                let form = new formidable.IncomingForm()
+                form.keepExtensions = true
+        form.parse(req, async (err, fields, files) => {
+            console.log(form)
+            if (err) {
+            return res.status(400).json({
+                message: "Image could not be uploaded"
+            })}
+            else{console.log(fields)
+                console.log(files)
+                console.log("chpt 2")
+                fs.copyFile(files.image.path,'/src/assets/image/uploads/'+rslts.id, {
+                    done: function(err) {
+                      console.log('done');
+                      return res.status(200).json({message:"book added successfully"})
+                    }
+                  });
+                }  
+            })
+                // console.log("chpt 1");
+                // console.log(req.body)
+                // db.book.create({
+                //     bookname:req.body.title,
+                //     author:req.body.author,
+                //     price:req.body.price,
+                //     available:1,
+                //     subject:req.body.sub,
+                //     imagepath:"/src/assets/image/uploads"
+                // }).then(rslts=>
+                // {   console.log(rslts)
+                //      db.book_belongs_to.create({
+                //         bookId:rslts.id,
+                //         UserUsername:req.user.username
+                //     })
+                //     .then(()=>{
+                //        })
+                //     .catch(err=>{
+                //         console.log("chpt 3")
+                //         return  res.status(422).json({error:err});
+                //     })
+                // })
+                // .catch(err=>{
+                //     console.log("chpt 4")
+                //     return  res.status(422).json({error:err});
+                // })
+            }
            
-           db.book.create({
-                bookname:req.body.title,
-                author:req.body.author,
-                price:req.body.price,
-                available:1,
-                subject:req.body.sub
-            }).then(rslts=>
-            {   console.log(rslts)
-                 db.book_belongs_to.create({
-                    bookId:rslts.id,
-                    UserUsername:req.user.username
-                })
-                .then(()=>{
-                    return res.status(200).json({message:"book added successfully"})
-                })
-                .catch(err=>{
-                    return  res.status(422).json({error:err});
-                })
-            })
-            
-        })
-            .catch(err=>{
-                return  res.status(422).json({error:err});
-            })
+        });
 }
 const update = (req,res) =>{
 
@@ -91,7 +116,7 @@ const ownerInfo = (req,res) =>{
         }
     ).then(user => {
         console.log(user)
-        //return res.status(200).json(user);
+        return res.status(200).json(user);
 
     }).catch(function(err) {
         console.log(err)
@@ -116,6 +141,7 @@ const FindBookByName = (req,res)=> {
         return res.status(200).json(books);
 
     }).catch(function(err) {
+        console.log("erroooorr")
         return  res.status(422).json({error:err});
          });
 

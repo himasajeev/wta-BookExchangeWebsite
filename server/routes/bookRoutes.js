@@ -2,7 +2,7 @@ import express from 'express'
 import authCtrl from '../controllers/authcontroller'
 import bookCtrl from '../controllers/bookcontroller'
 import isAuthenticated from '../../config/middleware/isAuthenticated'
-
+import multercntrl from "../controllers/multercontroller"
 const router = express.Router();
 
 router.route("/")
@@ -22,7 +22,6 @@ router.route('/:bookid')
     .get(isAuthenticated,bookCtrl.read) 
     .delete(isAuthenticated,bookCtrl.isOwner,bookCtrl.Delete)
     .patch(isAuthenticated,bookCtrl.isOwner,bookCtrl.update)
-
 router.param('bookid',bookCtrl.bookById);
 export default router;
 
