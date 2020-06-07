@@ -25,8 +25,8 @@ const OwnedBooks= ()=>{
         
         },[]);
     
-     return (<div>
-        <h2>Your books</h2>
+     return (<div className="owned">
+        
         <TableBox Books={Books}/>
     </div>)
 }

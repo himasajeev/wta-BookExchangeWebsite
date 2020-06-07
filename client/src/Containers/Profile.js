@@ -11,10 +11,7 @@ import image from "../assets/images/uploadbk.jpg"
 const Profile = ()=>{
     const [redirect,setRedirect] = useState(false);
     const [user,setUser] = useState({});
-    const handleLogout = ()=>{
-        localStorage.removeItem('username');
-        setRedirect(true);
-    }
+   
     const getProfile =async ()=>{
         console.log("...loading username")
         const username =  getUser();
@@ -45,15 +42,22 @@ const Profile = ()=>{
     
    return( <Redirect to='/'/>)}
    else
-    return(<div className="display"> 
+    return(<div className="profile"> 
     <InnerNavbar username={user.username} />
     <Sidebox fn={user.Fname} sn={user.Lname} username={user.username} mail={user.email}/>
     <div className="main">
     {/* <p>Hii {user.username}</p> */}
     {/* <Book title="Intro to algo" author="Thomas Corman" price="500" img={image}/> */}
+    <div className="cart">
+    <h2>Books in Cart</h2>
     <Cart username={user.username} />
+    </div>
+    <div className="ownedbooks">
+    <h2>Books uploaded</h2>
     <OwnedBooks className="ownedbooks" username={user.username}/>
-    <button onClick={handleLogout}>Logout</button>
+    </div>
+    
+    
     </div>
     
     </div>)

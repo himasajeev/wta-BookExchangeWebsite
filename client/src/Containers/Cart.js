@@ -26,7 +26,7 @@ const Cart= ()=>{
         },[]);
     
      return (<div>
-        <h2>Your Favourites</h2>
+        
         <TableBox Books={Books}/>
     </div>)
 }

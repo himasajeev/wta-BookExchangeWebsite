@@ -251,21 +251,45 @@ header{
   }
 
   .profile {
-    background-image: url('./assets/images/book6.jpg');
+    /* background-image: url('./assets/images/book6.jpg'); */
+    background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(./assets/images/addbk3.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    text-decoration: rgb(180, 205, 228);
   }
-  .main{
+  .profile .cart{
     /* left: 200px; */
     margin-left: 250px;
-    display: inline-block;
-    flex-direction: row;
-    padding: 0px 10px;
+    /* display: inline-block;
+    flex-direction: row; */
+    
   }
   .profile .ownedbooks{
+    /* left: 200px; */
+    margin-left: 520px;
+    /* display: inline-block;
+    flex-direction: row; */
+    
+  }
+  .profile .main{
+    flex-direction: row;
+    display: inline-flex;
+  }
+  .profile .main .tableBox{
+    padding: 10px 10px;
+    
 
   }
-  .book{
   
+  .book{
+    align-self: flex-end;
     padding: 10px 10px;
+  }
+  .expandedBook{
+    align-self: center;
+    text-align: center;
   }
   /* .profile section{
     float: left;
