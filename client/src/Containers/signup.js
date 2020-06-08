@@ -1,5 +1,7 @@
 import React,{useState} from 'react'
 import OuterNavbar from '../Components/OuterNavbar'
+import {signup} from "../Api-requests/userRequests"
+import {Redirect} from "react-router-dom"
 import '../Style.css'
 const Signup = ()=>{
     const [user,setUser] = useState({
@@ -7,7 +9,9 @@ const Signup = ()=>{
         password:'',
         fn:'',
         ln:'',
-        mailid:''
+        mailid:'',
+        error:'',
+        redirect:false
     })
  const handleChange = (event)=>{
         const target = event.target;
@@ -17,10 +21,26 @@ const Signup = ()=>{
         return {...prev,[target.name]:target.value}
     })
     }
-   const handleSubmit = (event)=>{
-       event.preventDefault();
-       console.log(user)
-   }
+    const handleSubmit = (event)=>{
+        event.preventDefault();
+        console.log(user);
+        signup(user).then((res)=>{
+            
+            if(res.status !== 200)
+            {setUser(prev=> {return {...prev,error:"error"}});
+            console.log(res);
+            }
+            else
+            {console.log("...signing up");
+            localStorage.setItem('username', user.username);
+            setUser(prev=>{return{...prev,error:'',redirect:true}});}
+        });
+    };
+    const {redirect} = user;
+    if (redirect) {
+        return (<Redirect to='/profile'/>)
+    }
+    else
     return (<div className="in">
         <OuterNavbar />
         <div className="signup-box">
@@ -47,6 +67,7 @@ const Signup = ()=>{
               </div>
 
           <button onClick={handleSubmit}className="button" type="submit" >Sign up</button> 
+          {user.error? <p>{user.error}</p> : null}
 
           </div>
     </div>)

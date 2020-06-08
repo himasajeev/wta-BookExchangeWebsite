@@ -1,7 +1,9 @@
 import db from  "../models"
-
+import passport from "../../config/passport"
 
 const create = async (req,res) =>{
+  console.log("requesting ...")
+   console.log(req.body)
     db.User.create({
         username:req.body.username,
         Fname:req.body.fn,
@@ -9,11 +11,15 @@ const create = async (req,res) =>{
         email: req.body.mailid,
         password: req.body.password
       }).then(function() {
-        return res.status(200).json({
+        passport.authenticate("local")(req,res,function(){
+          return res.status(200).json({
             message: "Successfully signed up!"
           })
+        });
+        
     
       }).catch(function(err) {
+        console.log(err)
        return  res.status(422).json({error:err}); 
         });
 }
