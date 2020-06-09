@@ -15,13 +15,15 @@ header{
   }
   .navbar {
     overflow: auto;
+    font-size: 22px;
  
     /* position: fixed; Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /*Full width */
   }
   .inner {
-   background-color:black;
+   background-color:rgb(131, 36, 56);
+   height: 12%;
   }
   .searchdiv{
     margin-top: 10px;
@@ -113,11 +115,11 @@ header{
   
   /* Dropdown button */
   .dropdown .dropbtn {
-    font-size: 16px;
+    font-size: 22px;
     border: none;
     outline: none;
     color: white;
-    padding: 14px 16px;
+    padding: 20% 10%;
     background-color: inherit;
     font-family: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
@@ -129,16 +131,16 @@ header{
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
+    background-color: rgb(34, 33, 33);
+    /*min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
+    z-index: 1;*/
   }
   
   /* Links inside the dropdown */
   .dropdown-content li {
     float: none;
-    color: black;
+    color: rgb(131, 36, 56);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -252,7 +254,9 @@ header{
 
   .profile {
     /* background-image: url('./assets/images/book6.jpg'); */
-    background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(./assets/images/addbk3.jpg);
+    /*background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(./assets/images/addbk3.jpg);
+    */
+    background: rgb(148, 148, 148);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -261,7 +265,8 @@ header{
   }
   .profile .cart{
     /* left: 200px; */
-    margin-left: 250px;
+    margin-left: 80%;
+    font-size: 20px;
     /* display: inline-block;
     flex-direction: row; */
     
@@ -269,6 +274,7 @@ header{
   .profile .ownedbooks{
     /* left: 200px; */
     margin-left: 520px;
+    font-size: 20px;
     /* display: inline-block;
     flex-direction: row; */
     
@@ -563,27 +569,29 @@ header{
   }
   .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 250px; /* Set the width of the sidebar */
+    width: 26%; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 0; /* Stay on top */
      /* Stay at the top */
     left: 0;
-    background-color: #111; /* Black */
+    background-color: rgb(34, 33, 33); /* Black */
     overflow-x: auto; /* Disable horizontal scroll */
     
     padding-top: 20px;
   }
   
   .sidenav h2{
-    padding: 6px 8px 6px 16px;
+    padding: 4%;
     text-decoration: none;
     color:whitesmoke;
+    font-size: 35px;
     /* display: block; */
   }
   .sidenav p{
-    padding: 6px 8px 6px 16px;
+    padding: 2% 4%;
     text-decoration: none;
-    color: #2196F3;
+    color: rgb(168, 180, 190);
+    font-size: 18px;
     /* display: block; */
   }
   @media (max-width:650px)

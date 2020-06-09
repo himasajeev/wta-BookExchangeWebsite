@@ -49,11 +49,11 @@ const Profile = ()=>{
     {/* <p>Hii {user.username}</p> */}
     {/* <Book title="Intro to algo" author="Thomas Corman" price="500" img={image}/> */}
     <div className="cart">
-    <h2>Books in Cart</h2>
+    <h2>Cart</h2>
     <Cart username={user.username} />
     </div>
     <div className="ownedbooks">
-    <h2>Books uploaded</h2>
+    <h2>Uploaded</h2>
     <OwnedBooks className="ownedbooks" username={user.username}/>
     </div>
     
