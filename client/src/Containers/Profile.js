@@ -43,8 +43,9 @@ const Profile = ()=>{
    return( <Redirect to='/'/>)}
    else
     return(<div className="profile"> 
-    <InnerNavbar username={user.username} />
+  
     <Sidebox fn={user.Fname} sn={user.Lname} username={user.username} mail={user.email}/>
+    <InnerNavbar username={user.username} />
     <div className="main">
     {/* <p>Hii {user.username}</p> */}
     {/* <Book title="Intro to algo" author="Thomas Corman" price="500" img={image}/> */}
