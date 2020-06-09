@@ -9,7 +9,7 @@ const OwnedBooks= ()=>{
         const username =  getUser();
         await ownedbooks(username).then((res)=>{
             if(res.status===200)
-            {//console.log(res.data)
+            {console.log(res.data)
             setBooks(()=>{
             return [...res.data]
             })
@@ -24,8 +24,8 @@ const OwnedBooks= ()=>{
         getBooks();
         
         },[]);
-    
-     return (<div className="owned">
+        console.log("inside owned")
+     return (<div >
         
         <TableBox Books={Books}/>
     </div>)

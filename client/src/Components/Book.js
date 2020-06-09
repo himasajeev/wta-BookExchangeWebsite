@@ -23,7 +23,7 @@ import '../../src/Style.css'
 const useStyles = makeStyles({
     root: {
       maxWidth: 250,
-      maxheight:100,
+       height:400,
     },
     media: {
       height: 150,
@@ -70,7 +70,7 @@ if(redirect)
           title="Book"
         />
         <CardContent>
-          <Typography gutterBottom variant="h4" component="h2">
+          <Typography gutterBottom="true" variant="h5" component="h2">
             {props.title}
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">

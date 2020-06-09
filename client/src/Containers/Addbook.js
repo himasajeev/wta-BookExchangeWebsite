@@ -1,6 +1,7 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import InnerNavbar from '../Components/InnerNavbar'
 import {addbook} from "../Api-requests/bookRequests"
+import getUser from '../actions/getUser'
 import '../Style.css'
 const Addbook = ()=>{
     const [book,setBook] =useState({
@@ -10,6 +11,7 @@ const Addbook = ()=>{
         image:'',
         price:''
     })
+    const [user,setUser] = useState(' ')
     const handleChangeImage = (e) => {
         const file = e.target.files[0];
         console.log(file);
@@ -19,6 +21,14 @@ const Addbook = ()=>{
         }   
         );
     }
+    useEffect(()=>{
+        
+        const username  = getUser();
+        setUser(username);
+        console.log(username)
+    
+     
+})
     const handleSubmit =(event)=>{
         event.preventDefault();
         console.log(book)
@@ -47,7 +57,7 @@ const Addbook = ()=>{
         })
     }
     return(<div className="addbook">
-    <InnerNavbar />
+    <InnerNavbar username={user}/>
     <form onSubmit={handleSubmit}>
     <div >
     <input type="text" onChange={handleChange} value={book.title} name="title" placeholder="Title" required={true} />

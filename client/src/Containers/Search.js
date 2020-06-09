@@ -1,18 +1,28 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import IconButton from '@material-ui/core/IconButton'
 import SearchIcon from '@material-ui/icons/Search'
 import InnerNavbar from '../Components/InnerNavbar'
 import {bookByName,bookByAuthor,bookBySubject} from "../Api-requests/bookRequests"
 import TableBox from "../Components/TableBox"
+import getUser from '../actions/getUser'
 import Book from '../Components/Book'
 const Search = ()=>{
     const style={
         width:"400px"
     }
     const [books,setBooks] = useState([]);
-    
+   const [user,setUser] = useState('')
+    useEffect(()=>{
+        
+            const username  = getUser();
+            setUser(username);
+            console.log(username)
+        
+         
+    })
     const handleSubmit =async (event)=>{
         event.preventDefault();
+
         const type =event.target.type.value;
         const searchString = event.target.searchbar.value;
         console.log(type);
@@ -21,9 +31,10 @@ const Search = ()=>{
         else if(searchString.length==0)
         alert("Search string can't be empty")
         else
-        {
-            if(type===1)
-            {
+        { console.log("inside main else")
+        console.log(type)
+            if(type == 1)
+            {console.log("inside 1.")
                 await bookByName(searchString).then((res)=>{
                     if(res.status===200)
                     {//console.log(res.data)
@@ -33,8 +44,8 @@ const Search = ()=>{
                 })
                         
             }
-            else if (type===2){
-                console.log("inside ..")
+            else if (type==2){
+                console.log("inside 2.")
                 await bookByAuthor(searchString).then((res)=>{
                     if(res.status===200)
                     {//console.log(res.data)
@@ -43,7 +54,8 @@ const Search = ()=>{
                     })}
                 })
             }
-            else{
+            else if(type == 3){
+                console.log("inside 3.")
                 await bookBySubject(searchString).then((res)=>{
                     if(res.status===200)
                     {//console.log(res.data)
@@ -56,7 +68,7 @@ const Search = ()=>{
     }
     
     return(<div>
-    <InnerNavbar />
+    <InnerNavbar  username={user}/>
     <form className="searchdiv" onSubmit={handleSubmit}>
     <div className="custom-select" style={style}>
   <select name="type">

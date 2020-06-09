@@ -263,9 +263,48 @@ header{
     height: 100vh;
     text-decoration: rgb(180, 205, 228);
   }
+  .sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 26%; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 0; /* Stay on top */
+     /* Stay at the top */
+    left: 0;
+    background-color: rgb(34, 33, 33); /* Black */
+    overflow-x: auto; /* Disable horizontal scroll */
+    
+    padding-top: 20px;
+  }
+  
+  .sidenav h2{
+    padding: 4%;
+    text-decoration: none;
+    color:whitesmoke;
+    font-size: 35px;
+    /* display: block; */
+  }
+  .sidenav p{
+    padding: 2% 4%;
+    text-decoration: none;
+    color: rgb(168, 180, 190);
+    font-size: 18px;
+    /* display: block; */
+  }
+  .profile .main{
+    margin-left: 30%;
+    flex-direction: row;
+    /* display: inline-flex; */
+  }
+ 
+   .tableBox{
+    padding: 10px 10px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: start;
+  }
   .profile .cart{
     /* left: 200px; */
-    margin-left: 80%;
+    /* margin-left: 80%; */
     font-size: 20px;
     /* display: inline-block;
     flex-direction: row; */
@@ -273,30 +312,24 @@ header{
   }
   .profile .ownedbooks{
     /* left: 200px; */
-    margin-left: 520px;
-    font-size: 20px;
-    /* display: inline-block;
-    flex-direction: row; */
-    
-  }
-  .profile .main{
-    flex-direction: row;
-    display: inline-flex;
-  }
-  .profile .main .tableBox{
-    padding: 10px 10px;
-    
+    /* margin-left: 200px; */
 
+    font-size: 20px;
+     
+    
+    
   }
-  
+ 
   .book{
-    align-self: flex-end;
-    padding: 10px 10px;
+    
+    padding: 10px 30px;
+  
   }
   .expandedBook{
     align-self: center;
     text-align: center;
   }
+ 
   /* .profile section{
     float: left;
     height: 100vh;
@@ -568,33 +601,7 @@ header{
 
     }
   }
-  .sidenav {
-    height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 26%; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 0; /* Stay on top */
-     /* Stay at the top */
-    left: 0;
-    background-color: rgb(34, 33, 33); /* Black */
-    overflow-x: auto; /* Disable horizontal scroll */
-    
-    padding-top: 20px;
-  }
-  
-  .sidenav h2{
-    padding: 4%;
-    text-decoration: none;
-    color:whitesmoke;
-    font-size: 35px;
-    /* display: block; */
-  }
-  .sidenav p{
-    padding: 2% 4%;
-    text-decoration: none;
-    color: rgb(168, 180, 190);
-    font-size: 18px;
-    /* display: block; */
-  }
+ 
   @media (max-width:650px)
   {
     ul{

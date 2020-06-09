@@ -13,7 +13,7 @@ const Profile = ()=>{
     const [user,setUser] = useState({});
    
     const getProfile =async ()=>{
-        console.log("...loading username")
+        console.log("...lo0ading username")
         const username =  getUser();
         console.log(username)
         console.log("inside getprofile")
@@ -48,8 +48,8 @@ const Profile = ()=>{
     <div className="main">
     {/* <p>Hii {user.username}</p> */}
     {/* <Book title="Intro to algo" author="Thomas Corman" price="500" img={image}/> */}
-    <div className="cart">
-    <h2>Cart</h2>
+    <div className="cart"> 
+     <h2>Cart</h2>
     <Cart username={user.username} />
     </div>
     <div className="ownedbooks">

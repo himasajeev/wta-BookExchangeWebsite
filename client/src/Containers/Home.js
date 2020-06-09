@@ -1,5 +1,6 @@
 import React from 'react'
 import OuterNavbar from '../Components/OuterNavbar'
+
 import '../../src/Style.css'
 const Home = ()=>{
     return (<div>
