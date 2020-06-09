@@ -16,13 +16,13 @@ const Search = ()=>{
         const type =event.target.type.value;
         const searchString = event.target.searchbar.value;
         console.log(type);
-        if(type == 0)
+        if(type === 0)
         alert("Select a search type!")
         else if(searchString.length==0)
         alert("Search string can't be empty")
         else
         {
-            if(type==1)
+            if(type===1)
             {
                 await bookByName(searchString).then((res)=>{
                     if(res.status===200)
@@ -33,7 +33,7 @@ const Search = ()=>{
                 })
                         
             }
-            else if (type==2){
+            else if (type===2){
                 console.log("inside ..")
                 await bookByAuthor(searchString).then((res)=>{
                     if(res.status===200)
