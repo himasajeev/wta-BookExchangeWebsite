@@ -557,8 +557,9 @@ header{
       padding: 6% 6%;
     }
     .addbook form button:hover{
-      margin:25% 40%;
+      margin:25% 40%;                 
       padding: 6% 6%;
+
     }
   }
   .sidenav {
