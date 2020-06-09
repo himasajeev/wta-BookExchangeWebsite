@@ -24,7 +24,7 @@ const addBook = (req,res) =>{
                 return res.status(200).json({message:"user not found"})
             }
            db.cart.create({
-                bookId:req.body.bookId,
+                bookId:req.body.bookid,
                 UserUsername:req.user.username,
                
             }).then(()=>{ 
@@ -56,4 +56,5 @@ const  BooksOfUser =async function(req,res) {
         return  res.status(422).json({error:err});
          });
 }
+
 export default{BooksOfUser,list,addBook};

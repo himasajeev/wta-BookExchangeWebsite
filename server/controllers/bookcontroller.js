@@ -20,62 +20,39 @@ const addBook = (req,res) =>{
     
     const username = req.user.username;
     console.log(username);
-     db.User.findOne({username})
-        .then(user=>{
-            if(!user){
-                return res.status(200).json({message:"user not found"})
-            }
-            else{
-                console.log("inside 2nd")
-                let form = new formidable.IncomingForm()
-                form.keepExtensions = true
-        form.parse(req, async (err, fields, files) => {
-            console.log(form)
-            if (err) {
-            return res.status(400).json({
-                message: "Image could not be uploaded"
-            })}
-            else{console.log(fields)
-                console.log(files)
-                console.log("chpt 2")
-                fs.copyFile(files.image.path,'/src/assets/image/uploads/'+rslts.id, {
-                    done: function(err) {
-                      console.log('done');
-                      return res.status(200).json({message:"book added successfully"})
-                    }
-                  });
-                }  
-            })
-                // console.log("chpt 1");
-                // console.log(req.body)
-                // db.book.create({
-                //     bookname:req.body.title,
-                //     author:req.body.author,
-                //     price:req.body.price,
-                //     available:1,
-                //     subject:req.body.sub,
-                //     imagepath:"/src/assets/image/uploads"
-                // }).then(rslts=>
-                // {   console.log(rslts)
-                //      db.book_belongs_to.create({
-                //         bookId:rslts.id,
-                //         UserUsername:req.user.username
-                //     })
-                //     .then(()=>{
-                //        })
-                //     .catch(err=>{
-                //         console.log("chpt 3")
-                //         return  res.status(422).json({error:err});
-                //     })
-                // })
-                // .catch(err=>{
-                //     console.log("chpt 4")
-                //     return  res.status(422).json({error:err});
-                // })
+       console.log(req.body);
+    console.log(req.body.title)
+    console.log(req.file)
+                db.book.create({
+                    bookname:req.body.title,
+                    author:req.body.author,
+                    price:req.body.price,
+                    available:1,
+                    subject:req.body.sub,
+                    imagepath:req.file.filename
+                }).then(rslts=>
+                {   console.log(rslts)
+                     db.book_belongs_to.create({
+                        bookId:rslts.id,
+                        UserUsername:req.user.username
+                    })
+                    .then(()=>{
+                        console.log("success")
+                        return res.status(200).json({message:"success"})
+                       })
+                    .catch(err=>{
+                        console.log("chpt 3")
+                        return  res.status(422).json({error:err});
+                    })
+                })
+                .catch(err=>{
+                    console.log("chpt 4")
+                    console.log(err)
+                    return  res.status(422).json({error:err});
+                })
             }
            
-        });
-}
+   
 const update = (req,res) =>{
 
      return db.book.update({price:req.book.price,bookname:req.book.title,author:req.book.author,subject:req.book.subject},{where:{id:req.book.id}})

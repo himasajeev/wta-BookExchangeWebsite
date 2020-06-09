@@ -28,17 +28,12 @@ const Addbook = ()=>{
         console.log(username)
     
      
-})
+},[])
     const handleSubmit =(event)=>{
         event.preventDefault();
         console.log(book)
-        let bookData = new FormData();
-        bookData.append('title',book.title)
-        bookData.append('author',book.author)
-        bookData.append('subject',book.subject)
-        bookData.append('price',book.price)
-        bookData.append('image',book.image)
-        addbook(bookData).then((res)=>{
+        addbook(book).then((res)=>{
+         
             if(res.status===200)
             {
                 alert("Book added succesfully")

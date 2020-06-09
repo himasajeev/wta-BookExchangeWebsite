@@ -1,15 +1,17 @@
 import axios from '../axiosConfig'
 
-const addbook = async(BookData)=>{
+const addbook = async(book)=>{
     try{
-            console.log(BookData)
-            const res = await axios.post('/books',{
-                title:BookData.title,
-                author:BookData.author,
-                subject:BookData.subject,
-                image:BookData.image,
-                price:BookData.price
-            });
+            console.log(book)
+            const bookData = new FormData();
+            bookData.append('file',book.image);
+            bookData.append('title',book.title)
+            bookData.append('author',book.author)
+            bookData.append('sub',book.subject)
+            bookData.append('price',book.price)
+
+            const res = await axios.post('/books',bookData,{
+            })
             console.log(res);
             return res;
     
@@ -21,6 +23,7 @@ const addbook = async(BookData)=>{
         console.log(err.res);}
 
 }
+
 const bookById = async(Bookid)=>{
     try{
         console.log(Bookid);

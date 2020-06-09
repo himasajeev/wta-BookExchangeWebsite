@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.route("/")
     .get(isAuthenticated,bookCtrl.list)
-    .post(isAuthenticated,bookCtrl.addBook)
+    .post(isAuthenticated,multercntrl.Upload,bookCtrl.addBook)
 router.route("/bookBySubject/:sub")
     .get(isAuthenticated,bookCtrl.FindBookBySub)
 router.route("/bookByName/:bookname")
