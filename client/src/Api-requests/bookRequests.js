@@ -108,4 +108,22 @@ const ownedbooks =  async (username)=>{
             
             console.log(err.res);}
     }
-export {addbook,ownedbooks,favouritebooks,bookByName,bookByAuthor,bookBySubject,bookById,getOwnerInfo};
+    const isBookofUser = async(bookId,username)=>{
+        const values = new FormData();
+        values.append("username",username)
+        values.append("bookID",bookId)
+      
+        try{
+            const res = await axios.get('/books/bookofuser',{
+              bookId:bookId,
+              username:username
+            });
+            console.log(res);
+            return res;
+
+        }
+        catch(err){
+           
+            console.log(err.res);}
+    }
+export {addbook,ownedbooks,isBookofUser,favouritebooks,bookByName,bookByAuthor,bookBySubject,bookById,getOwnerInfo};

@@ -18,10 +18,13 @@ router.route("/bookByOwner/:userid")
     .get(isAuthenticated,authCtrl.hasAuthorization,bookCtrl.BooksOfUser)
 router.route("/getOwnerInfo/:bookid")
     .get(isAuthenticated,bookCtrl.ownerInfo)
+router.route('/bookofUser')
+    .get(isAuthenticated,bookCtrl.isBookofUser)
 router.route('/:bookid')
     .get(isAuthenticated,bookCtrl.read) 
     .delete(isAuthenticated,bookCtrl.isOwner,bookCtrl.Delete)
     .patch(isAuthenticated,bookCtrl.isOwner,bookCtrl.update)
+
 router.param('bookid',bookCtrl.bookById);
 export default router;
 

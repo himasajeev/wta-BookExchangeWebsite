@@ -204,4 +204,26 @@ const  BooksOfUser =async function(req,res) {
         return  res.status(422).json({error:err});
          });
 }
-export default {FindBookByAuthor, FindBookByName, FindBookBySub, BooksOfUser,isOwner,bookById,read,list,addBook,update,Delete,ownerInfo}
+const isBookofUser = async function(req,res){
+    // console.log(req.body)
+    // const bookid = req.body.bookId;
+    // const username = req.body.username;
+
+    // let isbook;
+    // await db.sequelize.query(
+    //   'CALL isBookofUser(:name,:id,@isbook)',
+    //   {replacements :{name:"nithya0903",id:20}}
+    //   )
+    //   .then(isBook=>
+    //   {   console.log(isbook)
+    //     console.log(isBook)
+    //       return res.status(200).send(isBook);
+    //   })
+    //   .catch(function(err) {
+    //     console.log(err)
+    //     return  res.status(422).json({error:err});
+    //      });
+}
+      
+
+export default {FindBookByAuthor, isBookofUser,FindBookByName, FindBookBySub, BooksOfUser,isOwner,bookById,read,list,addBook,update,Delete,ownerInfo}

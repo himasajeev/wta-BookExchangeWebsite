@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -11,7 +11,8 @@ import AddIcon from '@material-ui/icons/Add';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {Redirect} from "react-router-dom"
 import handleAddToCart from "../actions/handleAddToCart"
-
+import {isBookofUser} from "../Api-requests/bookRequests"
+import getUser from "../actions/getUser"
 
 import '../../src/Style.css'
 
@@ -31,7 +32,17 @@ const Book = (props)=>{
   const path = "books/"+props.id;
   
   const [redirect,setRedirect] = useState(false)
+  
     const classes = useStyles();
+    useEffect(()=>{
+      const username =getUser();
+      isBookofUser(username,props.id)
+      .then((res)=>{
+        if(res.status === 200){
+        console.log("isbookofowner",res.data)
+        }
+      }
+    )})
     const handleClick = ()=>{
       setRedirect(true);
       }
@@ -43,11 +54,11 @@ const Book = (props)=>{
         // else
          handleAddToCart(props.id)
       }
-      console.log(props.img)
+      
 if(redirect)
     {
    return( <Redirect to={path}/>)}
-   else
+   else{
   return (
     <div className="book">
      <Card className={classes.root}>
@@ -58,7 +69,7 @@ if(redirect)
           title="Book"
         />
         <CardContent>
-          <Typography gutterBottom="true" variant="h5" component="h2">
+          <Typography gutterBottom variant="h5" component="h2">
             {props.title}
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
@@ -81,12 +92,5 @@ if(redirect)
     </Card>
     </div>
    )}
-//     return( 
-//     {/* <p id="title"><b>{props.title}</b><img src="bookdisp.jpg" alt="book"/></p>
-//     <div class="detail">
-
-//     </div> */}
-    
-
-// }
+  }
 export default Book;
