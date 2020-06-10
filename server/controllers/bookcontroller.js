@@ -205,10 +205,11 @@ const  BooksOfUser =async function(req,res) {
          });
 }
 const isBookofUser = async function(req,res){
-     console.log(req.body)
-     const bookid = req.body.bookId;
-     const username = req.body.username;
-
+    //  console.log(req.body)
+    //  console.log(req)
+     const bookid = req.params.bookId;
+     const username = req.user.username;
+    console.log("bookid: ",bookid)
      let isbook;
     await db.sequelize.query(
        'select UserUsername from book_belongs_to where bookId=?',

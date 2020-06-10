@@ -108,16 +108,11 @@ const ownedbooks =  async (username)=>{
             
             console.log(err.res);}
     }
-    const isBookofUser = async(bookId,username)=>{
-        const values = new FormData();
-        values.append("username",username)
-        values.append("bookID",bookId)
+    const isBookofUser = async(bookId)=>{
+        
       
         try{
-            const res = await axios.get('/books/bookofuser',{
-              bookId:bookId,
-              username:username
-            });
+            const res = await axios.get('/books/bookofuser/'+bookId);
             console.log(res);
             return res;
 
@@ -126,4 +121,17 @@ const ownedbooks =  async (username)=>{
            
             console.log(err.res);}
     }
-export {addbook,ownedbooks,isBookofUser,favouritebooks,bookByName,bookByAuthor,bookBySubject,bookById,getOwnerInfo};
+    const inCartofUser = async(bookId)=>{
+        
+      
+        try{
+            const res = await axios.get('/carts/incartofuser/'+bookId);
+            console.log(res);
+            return res;
+
+        }
+        catch(err){
+           
+            console.log(err.res);}
+    }
+export {addbook,ownedbooks,isBookofUser,favouritebooks,bookByName,bookByAuthor,bookBySubject,bookById,getOwnerInfo,inCartofUser};

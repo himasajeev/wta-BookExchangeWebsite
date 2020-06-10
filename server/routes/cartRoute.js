@@ -9,7 +9,8 @@ const router = express.Router()
 router.route("/")
     .get(isAuthenticated,cartCtrl.list)
     .post(isAuthenticated,cartCtrl.addBook)
-
+router.route("/incartofuser")
+    .get(isAuthenticated,cartCtrl.BookPresent)
 router.route("/cartByOwner/:userid")
     .get(isAuthenticated,authCtrl.hasAuthorization,cartCtrl.BooksOfUser)
 

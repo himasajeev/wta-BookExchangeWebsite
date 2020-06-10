@@ -6,12 +6,14 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
+import StarsIcon from '@material-ui/icons/Stars';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {Redirect} from "react-router-dom"
 import handleAddToCart from "../actions/handleAddToCart"
-import {isBookofUser} from "../Api-requests/bookRequests"
+import {isBookofUser,inCartofUser} from "../Api-requests/bookRequests"
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import getUser from "../actions/getUser"
 
 import '../../src/Style.css'
@@ -30,19 +32,25 @@ const useStyles = makeStyles({
 
 const Book = (props)=>{
   const path = "books/"+props.id;
-  
   const [redirect,setRedirect] = useState(false)
-  
+  const [inCart,setIncart] = useState(false)
+  const [isUsers,setIsusers] = useState(false)
     const classes = useStyles();
     useEffect(()=>{
       const username =getUser();
-      isBookofUser(username,props.id)
+      isBookofUser(props.id)
       .then((res)=>{
         if(res.status === 200){
-        console.log("isbookofowner",res.data)
+        setIsusers(res.data);
         }
-      }
-    )})
+      });
+      // inCartofUser(props.id)
+      // .then((res)=>{
+      //   if(res.status === 200){
+      //   setIncart(res.data);
+      //   }
+      // })
+    },[inCart])
     const handleClick = ()=>{
       setRedirect(true);
       }
@@ -62,15 +70,25 @@ if(redirect)
   return (
     <div className="book">
      <Card className={classes.root}>
-      <CardActionArea>
+      {/* <CardActionArea> */}
         <CardMedia
           className={classes.media}
           image={process.env.PUBLIC_URL+'/images/uploads/'+props.imagepath} //change llater
           title="Book"
         />
+         {/* <div className=" dropdown2">
+            <button className="dropbtn2">
+            <i className="fa fa-caret-down" ></i>
+            </button>
+            <div className="dropdown-content">
+            <li></li>
+            <li> </li>
+            </div>
+            </div> */}
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.title}
+          {isUsers? <StarsIcon/> : null}
           </Typography>
           <Typography variant="body1" color="textSecondary" component="p">
             {props.author}
@@ -80,12 +98,12 @@ if(redirect)
           </Typography>
           
         </CardContent>
-        </CardActionArea>
+        {/* </CardActionArea> */}
       <CardActions>
         <IconButton aria-label="view details" onClick={handleClick}>
         <AddIcon/>
         </IconButton>
-        <IconButton aria-label="add to cart" onClick={addtoCart}>
+        <IconButton color={inCart?"primary":""} aria-label="add to cart" onClick={addtoCart}>
         <FavoriteIcon/>
         </IconButton>
       </CardActions>

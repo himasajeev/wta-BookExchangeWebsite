@@ -58,6 +58,7 @@ const  BooksOfUser =async function(req,res) {
 }
 const BookPresent=async function(req,res){
   const bookid=req.params.bookid;
+  const username = req.user.username;
   await db.sequelize.query(
       'SELECT * FROM cart WHERE bookId=?',
       {
