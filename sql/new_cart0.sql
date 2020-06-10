@@ -31,7 +31,7 @@ CREATE TABLE `cart` (
   KEY `UserUsername` (`UserUsername`),
   CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`bookId`) REFERENCES `book` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`UserUsername`) REFERENCES `users` (`username`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES (1,5,'nithya0903');
+INSERT INTO `cart` VALUES (1,23,'nithya0903'),(3,NULL,'nithya0903'),(4,NULL,'nithya0903'),(5,NULL,'nithya0903'),(6,23,'nithya0903'),(7,18,'nithya0903'),(8,20,'nithya0903'),(9,20,'nithya0903');
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-09 15:00:58
+-- Dump completed on 2020-06-10 11:50:38

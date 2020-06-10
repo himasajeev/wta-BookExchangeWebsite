@@ -42,7 +42,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('nithya','nithya','poli','dsf@dfd.com','$2a$10$ye4frfUfv8HlglGZ0Yn/Gerjy3pPXZas.Uck3evhLY6hOu.ZmyXcu','2020-06-08 16:50:25','2020-06-08 16:50:25'),('nithya0903','nithya','manoj','nithyamanoj.ms@gmail.com','$2a$10$1TABJa9vIVA9UgU92BKAMOsLIT70UEc0p/x..osLpNKVjGjSCvfk2','2020-06-03 04:33:00','2020-06-03 04:33:00'),('nithya09030','nithya','awesome','thejuggs@juggsworld.com','$2a$10$ifj4XdIfN6qq6siP6Jpy.OxmDPxz8DXm8YX6Mz0T5C42a68cQNHza','2020-06-08 16:41:43','2020-06-08 16:41:43'),('nithyaa00','nithyaaa','poliii','email.sdf@sd.com','$2a$10$pWCMD3AiPtB/H799eaAeJ.m4ST95L9CqURbQb1c1ESNI5ms8CZrQ2','2020-06-08 16:53:58','2020-06-08 16:53:58'),('nithyaa007','nithyaa','poliii','dssf@dfd.com','$2a$10$lJE.Nt9h0tVAjcb39AzcdOWX72ASOWEOj8HPIhLCe.8a1i2/7NYDG','2020-06-08 16:52:26','2020-06-08 16:52:26');
+INSERT INTO `users` VALUES ('himaa','hima','..','himasajeev@gmail.com','$2a$10$vDIDgfgVUjuZFGydp3h4.ONWseAenRF4NJuRxIA.EWQMsYG0SHX1y','2020-06-09 19:12:19','2020-06-09 19:12:19'),('nithya','nithya','poli','dsf@dfd.com','$2a$10$ye4frfUfv8HlglGZ0Yn/Gerjy3pPXZas.Uck3evhLY6hOu.ZmyXcu','2020-06-08 16:50:25','2020-06-08 16:50:25'),('nithya0903','nithya','manoj','nithyamanoj.ms@gmail.com','$2a$10$1TABJa9vIVA9UgU92BKAMOsLIT70UEc0p/x..osLpNKVjGjSCvfk2','2020-06-03 04:33:00','2020-06-03 04:33:00'),('nithya09030','nithya','awesome','thejuggs@juggsworld.com','$2a$10$ifj4XdIfN6qq6siP6Jpy.OxmDPxz8DXm8YX6Mz0T5C42a68cQNHza','2020-06-08 16:41:43','2020-06-08 16:41:43'),('nithyaa00','nithyaaa','poliii','email.sdf@sd.com','$2a$10$pWCMD3AiPtB/H799eaAeJ.m4ST95L9CqURbQb1c1ESNI5ms8CZrQ2','2020-06-08 16:53:58','2020-06-08 16:53:58'),('nithyaa007','nithyaa','poliii','dssf@dfd.com','$2a$10$lJE.Nt9h0tVAjcb39AzcdOWX72ASOWEOj8HPIhLCe.8a1i2/7NYDG','2020-06-08 16:52:26','2020-06-08 16:52:26'),('Poojitha','Krishna','Poojitha','poojitha@gmail.com','$2a$10$r3hSm6XawAVSSGEVh7Kl7O4P6T0mOS7KCqkzjb1eHDcHg2J58VR7i','2020-06-09 19:14:54','2020-06-09 19:14:54');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-09 15:00:58
+-- Dump completed on 2020-06-10 11:50:38

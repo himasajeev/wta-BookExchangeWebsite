@@ -309,6 +309,7 @@ header{
   .profile .cart{
     /* left: 200px; */
     /* margin-left: 80%; */
+    padding-top: 50px;
     font-size: 20px;
     /* display: inline-block;
     flex-direction: row; */

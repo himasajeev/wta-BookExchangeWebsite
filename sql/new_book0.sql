@@ -16,32 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `book_belongs_to`
+-- Table structure for table `book`
 --
 
-DROP TABLE IF EXISTS `book_belongs_to`;
+DROP TABLE IF EXISTS `book`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `book_belongs_to` (
+CREATE TABLE `book` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `bookId` int DEFAULT NULL,
-  `UserUsername` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `bookId` (`bookId`),
-  KEY `UserUsername` (`UserUsername`),
-  CONSTRAINT `book_belongs_to_ibfk_1` FOREIGN KEY (`bookId`) REFERENCES `book` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `book_belongs_to_ibfk_2` FOREIGN KEY (`UserUsername`) REFERENCES `users` (`username`) ON DELETE SET NULL ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `bookname` varchar(255) NOT NULL,
+  `author` varchar(255) NOT NULL,
+  `available` tinyint(1) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  `imagepath` varchar(255) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `book_belongs_to`
+-- Dumping data for table `book`
 --
 
-LOCK TABLES `book_belongs_to` WRITE;
-/*!40000 ALTER TABLE `book_belongs_to` DISABLE KEYS */;
-INSERT INTO `book_belongs_to` VALUES (1,1,'nithya0903'),(2,2,'nithya0903'),(3,3,'nithya0903'),(4,4,'nithya0903'),(5,5,'nithya0903'),(6,6,'nithya0903');
-/*!40000 ALTER TABLE `book_belongs_to` ENABLE KEYS */;
+LOCK TABLES `book` WRITE;
+/*!40000 ALTER TABLE `book` DISABLE KEYS */;
+INSERT INTO `book` VALUES (18,'Introduction to Algorithms','Thomas Corman',1,'DSA','file-15917296503581.PNG',500),(19,'Database design Concepts','Abraham Silbershatz',1,'DBMS','file-15917296958762.PNG',350),(20,'Data Structures and Algorithms in Java','Adrian Meija',1,'DSA','file-15917297252833.PNG',400),(21,'Data Structures and Algorithms in Java','Robert Lafore',1,'DSA','file-15917299972394.PNG',380),(22,'Operating System Concepts','Abraham Silbershatz',1,'OS','file-15917300431735.PNG',400),(23,'Operating System Principles','Abraham Silbershatz',1,'OS','file-15917301287096.PNG',500);
+/*!40000 ALTER TABLE `book` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-09 15:00:57
+-- Dump completed on 2020-06-10 11:50:38
