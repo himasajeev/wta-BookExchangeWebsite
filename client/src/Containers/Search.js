@@ -77,6 +77,7 @@ const Search = ()=>{
     <option value="2">Author</option>
     <option value="3">Subject</option>
   </select>
+  
     <input id="searchbar" 
      type="text" placeholder="Search.."></input>
     <IconButton
@@ -84,7 +85,7 @@ const Search = ()=>{
       color="primary">
         <SearchIcon />
       </IconButton>
-    </div>
+      </div>
     </form>
    <TableBox Books={books} />
     </div>)
