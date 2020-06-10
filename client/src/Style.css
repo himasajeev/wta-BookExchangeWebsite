@@ -257,11 +257,11 @@ header{
     /* background-image: url('./assets/images/book6.jpg'); */
     /*background-image: linear-gradient(rgba(133, 100, 139, 0.5),rgba(255,255,255,0.3)),url(./assets/images/addbk3.jpg);
     */
-    background: rgb(148, 148, 148);
+    /*background: rgb(148, 148, 148);*/
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    /*height: 200vh;*/
     text-decoration: rgb(180, 205, 228);
     padding-top: 50px;
   }
@@ -311,6 +311,7 @@ header{
     /* margin-left: 80%; */
     padding-top: 50px;
     font-size: 20px;
+    color: rgb(34, 33, 33);
     /* display: inline-block;
     flex-direction: row; */
     
@@ -318,7 +319,7 @@ header{
   .profile .ownedbooks{
     /* left: 200px; */
     /* margin-left: 200px; */
-
+    color: rgb(34, 33, 33);
     font-size: 20px;
      
     
@@ -331,6 +332,7 @@ header{
   
   }
   .expandedBook{
+    margin-top: 7%;
     align-self: center;
     text-align: center;
   }

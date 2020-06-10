@@ -56,5 +56,24 @@ const  BooksOfUser =async function(req,res) {
         return  res.status(422).json({error:err});
          });
 }
+const BookPresent=async function(req,res){
+  const bookid=req.params.bookid;
+  await db.sequelize.query(
+      'SELECT * FROM cart WHERE bookId=?',
+      {
+          replacements: [bookid],
+          type: QueryTypes.SELECT
+      }
+  ).then(books => {
+    //if(books.length)
+    //  return 1
+      //console.log(books)
+      //console.log("np")
+      return res.status(200).json(books);
+  }).catch(function(err) {
+      console.log(err)
+      return  res.status(422).json({error:err});
+       });
+}
 
-export default{BooksOfUser,list,addBook};
+export default{BooksOfUser,list,addBook,BookPresent};
