@@ -37,10 +37,13 @@ const Search = ()=>{
             {console.log("inside 1.")
                 await bookByName(searchString).then((res)=>{
                     if(res.status===200)
-                    {//console.log(res.data)
-                    setBooks(()=>{
-                    return [...res.data]
-                    })}
+                    {
+                       
+                        setBooks([...res.data])
+                    // setBooks(()=>{
+                    // return [...res.data]
+                    // })
+                }
                 })
                         
             }

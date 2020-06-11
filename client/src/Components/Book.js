@@ -82,7 +82,7 @@ if(redirect)
       {/* <CardActionArea> */}
         <CardMedia
           className={classes.media}
-          image={process.env.PUBLIC_URL+'/images/uploads/'+props.imagepath} //change llater
+          image={process.env.PUBLIC_URL+props.imagepath} //change llater
           title="Book"
         />
         

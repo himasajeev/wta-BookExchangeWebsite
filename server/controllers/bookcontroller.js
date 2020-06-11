@@ -2,8 +2,8 @@
 
 const {QueryTypes} = require('sequelize');
 const db = require("../models");
-import formidable from "formidable"
-import fs from "file-system"
+
+
 
  const list= (req,res)=>{
     return  db.sequelize.query('SELECT * FROM book ORDER BY id DESC LIMIT 10 ',{ type: QueryTypes.SELECT })
@@ -18,16 +18,11 @@ import fs from "file-system"
 
 const addBook = (req,res) =>{
     
-    //const username = req.user.username;
-    console.log(username);
-  //     console.log(req.body);
-    //console.log(req.body.title)
-    //console.log(req.file)
+  
                 db.book.create({
                     bookname:req.body.title,
                     author:req.body.author,
                     price:req.body.price,
-                    available:1,
                     subject:req.body.sub,
                     imagepath:req.file.filename
                 }).then(rslts=>
@@ -96,17 +91,19 @@ const Delete = (req,res)=>{
     });
 }
 
-const ownerInfo = (req,res) =>{
+const ownerInfo = async (req,res) =>{
     const bookid = req.book.id;
-    return db.sequelize.query(
-        'SELECT * FROM Users WHERE username IN (select UserUsername from book_belongs_to where bookId=?)',
+
+    db.sequelize.query(
+        'CALL ownerInfo(?)',
         {
             replacements: [bookid],
             type: QueryTypes.SELECT
         }
-    ).then(user => {
-       // console.log(user)
-        return res.status(200).json(user);
+    )
+    .then(user => {
+      
+        return res.status(200).json(user[0]['0']);
 
     }).catch(function(err) {
         console.log(err)
@@ -120,15 +117,22 @@ const read = (req,res)=>{
 
 const FindBookByName = (req,res)=> {
     const bookname = req.params.bookname;
-    return db.sequelize.query(
-        'SELECT * FROM book WHERE bookname LIKE :search_name',
+    console.log(bookname)
+     db.sequelize.query(
+        'CALL Bookbytitle(?)',
         {
-            replacements: {search_name: '%' + bookname + '%'},
-            type: QueryTypes.SELECT
+            replacements: [bookname],
+            type: db.Sequelize.QueryTypes.SELECT
         }
-    ).then(books => {
-        //console.log(books)
-        return res.status(200).json(books);
+    ).spread(books => {
+        console.log(books)
+        //const bookArray = Object.keys(books).map(book=>books(book));
+        
+        const Books = Object.values(books);
+        console.log(Object.values(books))
+        
+      
+        return res.status(200).json(Books);
 
     }).catch(function(err) {
         console.log("erroooorr")
@@ -174,16 +178,24 @@ const isOwner =async (req, res, next) => {
   }
 const FindBookByAuthor =async function (req,res) {
       const author = req.params.author;
-    await db.sequelize.query(
-        'SELECT * FROM book WHERE author LIKE :search_name',
+      db.sequelize.query(
+        'CALL Bookbyauthor(?)',
         {
-            replacements: {search_name: '%' + author + '%'},
-            type: QueryTypes.SELECT
+            replacements: [author],
+            type: db.Sequelize.QueryTypes.SELECT
         }
-    ).then(books => {
-      //  console.log(books)
-        return res.status(200).json(books);
-    }).catch(err=> {
+    ).spread(books => {
+        console.log(books)
+        //const bookArray = Object.keys(books).map(book=>books(book));
+        
+        const Books = Object.values(books);
+        console.log(Object.values(books))
+        
+      
+        return res.status(200).json(Books);
+
+    }).catch(function(err) {
+        console.log("erroooorr")
         return  res.status(422).json({error:err});
          });
 }
@@ -191,17 +203,24 @@ const FindBookByAuthor =async function (req,res) {
 
 const FindBookBySub = async function (req,res) {
     const sub = req.params.sub;
-    await db.sequelize.query(
-        'SELECT * FROM book WHERE subject LIKE  :search_name',
+    db.sequelize.query(
+        'CALL Bookbysubject(?)',
         {
-            replacements: {search_name: '%' + sub + '%'},
-            type: QueryTypes.SELECT
+            replacements: [sub],
+            type: db.Sequelize.QueryTypes.SELECT
         }
-    ).then(books => {
-        //console.log(books)
-        return res.status(200).json(books);
+    ).spread(books => {
+        console.log(books)
+        //const bookArray = Object.keys(books).map(book=>books(book));
+        
+        const Books = Object.values(books);
+        console.log(Object.values(books))
+        
+      
+        return res.status(200).json(Books);
+
     }).catch(function(err) {
-        console.log(err)
+        console.log("erroooorr")
         return  res.status(422).json({error:err});
          });
 }

@@ -23,7 +23,8 @@ const ExpandedBook = (props)=>{
        bookid = props.match.params.bookid;
         async function getBook(){
             await getOwnerInfo(bookid).then((res)=>{
-                setOwner(res.data[0])
+            
+                setOwner(res.data)
                 console.log(owner)
                 console.log("After owner")
             })
@@ -33,7 +34,7 @@ const ExpandedBook = (props)=>{
              console.log(res.data)
              
                 setBook(res.data)
-                console.log(book.available)
+              
                });
         
             
@@ -48,7 +49,7 @@ return(
  <Fragment>
     <InnerNavbar username={user}/>
     <div className="expandedBook">
-    <img src={process.env.PUBLIC_URL+'/images/uploads/'+book.imagepath }></img>
+    <img src={process.env.PUBLIC_URL+book.imagepath }></img>
           <Typography gutterBottom variant="h4" color="secondary" component="h2">
             {book.bookname}
             </Typography>
