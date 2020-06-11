@@ -60,15 +60,14 @@ const BookPresent=async function(req,res){
   const bookid=req.params.bookid;
   const username=req.params.username;
   await db.sequelize.query(
-      'select id from cart where bookId=?',
-      {
-          replacements: [bookid],
+      'select id from cart where bookId=:BookId and UserUsername=:Username',// ' and UserUsername='+username,
+      {replacements:{BookId:bookid, Username:username},
           type: QueryTypes.SELECT
       }
   ).then(books => {
     //console.log(books)
     if(books.length)
-    { //console.log(books.length)
+    { console.log(books.length)
     return res.status(200).json(true)
     }
     else {
