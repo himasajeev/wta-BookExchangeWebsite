@@ -58,19 +58,22 @@ const  BooksOfUser =async function(req,res) {
 }
 const BookPresent=async function(req,res){
   const bookid=req.params.bookid;
-  const username = req.user.username;
+  const username=req.params.username;
   await db.sequelize.query(
-      'SELECT * FROM cart WHERE bookId=?',
+      'select id from cart where bookId=?',
       {
           replacements: [bookid],
           type: QueryTypes.SELECT
       }
   ).then(books => {
-    //if(books.length)
-    //  return 1
-      //console.log(books)
-      //console.log("np")
-      return res.status(200).json(books);
+    //console.log(books)
+    if(books.length)
+    { //console.log(books.length)
+    return res.status(200).json(true)
+    }
+    else {
+    //  console.log(books.length)
+   return res.status(200).json(false);}
   }).catch(function(err) {
       console.log(err)
       return  res.status(422).json({error:err});
