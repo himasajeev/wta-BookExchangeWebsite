@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect, Fragment} from 'react'
 import {bookById,getOwnerInfo} from '../Api-requests/bookRequests'
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
@@ -44,9 +44,9 @@ const ExpandedBook = (props)=>{
     
       
 return(
-  <div className="expandedBook">
+ <Fragment>
     <InnerNavbar username={user}/>
-   
+    <div className="expandedBook">
     <img src={process.env.PUBLIC_URL+'/images/uploads/'+book.imagepath }></img>
           <Typography gutterBottom variant="h4" color="secondary" component="h2">
             {book.bookname}
@@ -83,6 +83,8 @@ return(
       >Add to Cart!</Button>
         
     </div>
+ </Fragment>
+   
 )
 }
 export default ExpandedBook;
