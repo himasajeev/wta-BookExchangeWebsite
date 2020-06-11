@@ -117,7 +117,7 @@ if(redirect)
           color="default"     
       >Add to Cart</Button>}
         {isUsers? <Button
-            onClick={deleteBook} 
+            onClick={handleDelete} 
           variant="contained"
           color="red"     
       >Delete Book</Button>:null}

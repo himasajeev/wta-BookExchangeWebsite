@@ -151,6 +151,8 @@ const ownedbooks =  async (username)=>{
         
       
         try{
+            console.log("inside deletebook")
+            console.log(bookId)
             const res = await axios.delete('/books/'+bookId);
             console.log(res);
             return res;
