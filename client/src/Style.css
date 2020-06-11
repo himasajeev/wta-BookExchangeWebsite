@@ -448,18 +448,22 @@ header{
     text-align: center;
     padding-top: 5%;
   }
-  .about .hdr{
+  .about .navbar{
     background:linear-gradient(rgba(120, 141, 62, 0.6),rgba(98, 116, 49, 1));
     opacity: 0.9;
     color: whitesmoke;
     height: 15vh;
   }
-  .about .hdr h1{
-    text-align: center;
-    font-size: 45px;
-    padding-top: 2%;
+  .about .content h1{
+    font-size: 32px;
+    margin-left: 40%;
+    color: rgb(47, 56, 24);
+  }
+  .about .content p{
+    align: justify-content;
   }
   .about .content{
+    margin-top: 7%;
     height: 58vh;
   }
   .about .team{

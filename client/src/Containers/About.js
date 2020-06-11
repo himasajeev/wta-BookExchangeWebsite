@@ -9,9 +9,9 @@ return (
     <div className="about">
        
           <OuterNavbar/>
-          <h1 >ABOUT</h1>
        
         <div className="content">
+        <h1 >ABOUT</h1>
             <article>
              <p>
              Finding the right books for each semester have always been a problem for NITK students.
