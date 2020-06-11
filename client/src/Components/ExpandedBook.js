@@ -9,7 +9,6 @@ import handleAddToCart from "../actions/handleAddToCart"
 const ExpandedBook = (props)=>{
     const [book,setBook] = useState({
       author:'',
-      available:false,
       bookname:'',
       price:'',
       subject:'',
@@ -31,8 +30,11 @@ const ExpandedBook = (props)=>{
             })
             //console.log(process.env.PUBLIC_URL +'/images/uploads/'+ bookid + '.PNG')
            await  bookById(bookid).then((res)=>{
+
              console.log(res.data)
+             
                 setBook(res.data)
+                
                });
         
             
@@ -68,12 +70,7 @@ return(
             <Typography gutterBottom variant="body2" color="primary" component="h5">
             Price: {book.price}
             </Typography>
-            { book.available ===0 ?<Typography gutterBottom variant="h4" color="secondary" component="h2">
-            Not Available
-            </Typography> : <Typography gutterBottom variant="h4" color="secondary" component="h2">
-             Available
-            </Typography>
-            }
+           
             <Button
             onClick={()=>{handleAddToCart(book.id)} }
           variant="contained"

@@ -9,9 +9,10 @@ const router = express.Router()
 router.route("/")
     .get(isAuthenticated,cartCtrl.list)
     .post(isAuthenticated,cartCtrl.addBook)
-router.route("/incartofuser")
+router.route("/incartofuser/:bookid")
     .get(isAuthenticated,cartCtrl.BookPresent)
 router.route("/cartByOwner/:userid")
     .get(isAuthenticated,authCtrl.hasAuthorization,cartCtrl.BooksOfUser)
-
+router.route("/deletecartelement/:bookid")
+    .delete(isAuthenticated,cartCtrl.Delete)
 export default router;

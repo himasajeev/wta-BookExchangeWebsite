@@ -18,11 +18,11 @@ import fs from "file-system"
 
 const addBook = (req,res) =>{
     
-    const username = req.user.username;
+    //const username = req.user.username;
     console.log(username);
-       console.log(req.body);
-    console.log(req.body.title)
-    console.log(req.file)
+  //     console.log(req.body);
+    //console.log(req.body.title)
+    //console.log(req.file)
                 db.book.create({
                     bookname:req.body.title,
                     author:req.body.author,
@@ -67,13 +67,26 @@ const Delete = (req,res)=>{
 
     const bookid = req.book.id;
      db.sequelize.query(
-        'UPDATE book SET available=0 WHERE id =? ',
+        'DELETE FROM book WHERE id =? ',
         {
             replacements: [bookid],
             type: QueryTypes.UPDATE
         }
     ).then(()=>{
-        return res.status(200).json("success");
+        db.sequelize.query(
+            'DELETE FROM book_belongs_to WHERE id =? ',
+            {
+                replacements: [bookid],
+                type: QueryTypes.UPDATE
+            }
+        ).then(()=>{
+            return res.status(200).json("success");
+        })
+        .catch(err=> {
+            console.log(err)
+       return  res.status(422).json({error:err});
+   });
+        
     }
         
     )
@@ -92,7 +105,7 @@ const ownerInfo = (req,res) =>{
             type: QueryTypes.SELECT
         }
     ).then(user => {
-        console.log(user)
+       // console.log(user)
         return res.status(200).json(user);
 
     }).catch(function(err) {
@@ -114,7 +127,7 @@ const FindBookByName = (req,res)=> {
             type: QueryTypes.SELECT
         }
     ).then(books => {
-        console.log(books)
+        //console.log(books)
         return res.status(200).json(books);
 
     }).catch(function(err) {
@@ -125,8 +138,8 @@ const FindBookByName = (req,res)=> {
 }
 const bookById = async (req, res, next,id) => {
     try {
-        console.log("heyyy");
-        console.log(id);
+      //  console.log("heyyy");
+      //  console.log(id);
 
       let book = await db.book.findOne({
           where :{id :id}
@@ -136,6 +149,7 @@ const bookById = async (req, res, next,id) => {
           error: "Book not found"
         })
       req.book = book
+    
       next()
     } catch (err) {
       return res.status('400').json({
@@ -143,9 +157,15 @@ const bookById = async (req, res, next,id) => {
       })
     }
 }
-const isOwner = (req, res, next) => {
-    const isOwner = req.book && req.user.username == req.book.owner
-    if(!isOwner){
+const isOwner =async (req, res, next) => {
+   
+    let owner = await db.book_belongs_to.findOne({
+        where :{id :req.book.dataValues.id}
+    });
+    console.log(req.book,owner)
+   console.log(req.user.username)
+   console.log(req.book.dataValues.id)
+    if(owner === req.user.username){
       return res.status('403').json({
         error: "User is not authorized"
       })
@@ -161,7 +181,7 @@ const FindBookByAuthor =async function (req,res) {
             type: QueryTypes.SELECT
         }
     ).then(books => {
-        console.log(books)
+      //  console.log(books)
         return res.status(200).json(books);
     }).catch(err=> {
         return  res.status(422).json({error:err});
@@ -178,7 +198,7 @@ const FindBookBySub = async function (req,res) {
             type: QueryTypes.SELECT
         }
     ).then(books => {
-        console.log(books)
+        //console.log(books)
         return res.status(200).json(books);
     }).catch(function(err) {
         console.log(err)
@@ -188,7 +208,7 @@ const FindBookBySub = async function (req,res) {
 
 const  BooksOfUser =async function(req,res) {
     const username = req.params.userid;
-    console.log(username);
+    //console.log(username);
     await db.sequelize.query(
         'SELECT * FROM book WHERE id IN (SELECT bookId from book_belongs_to where UserUsername =?)',
         {
@@ -209,7 +229,7 @@ const isBookofUser = async function(req,res){
     //  console.log(req)
      const bookid = req.params.bookId;
      const username = req.user.username;
-    console.log("bookid: ",bookid)
+   // console.log("bookid: ",bookid)
      let isbook;
     await db.sequelize.query(
        'select UserUsername from book_belongs_to where bookId=?',
@@ -220,7 +240,7 @@ const isBookofUser = async function(req,res){
        )
        .then(user=>
        {
-         console.log(user[0].UserUsername===username)
+        // console.log(user[0].UserUsername===username)
 
          //return userName===username
         // console.log(isBook)

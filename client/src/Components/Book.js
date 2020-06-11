@@ -12,6 +12,8 @@ import AddIcon from '@material-ui/icons/Add';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import {Redirect} from "react-router-dom"
 import handleAddToCart from "../actions/handleAddToCart"
+import deleteFromCart from "../actions/deleteFromCart"
+import deleteBook from "../actions/deleteBook"
 import {isBookofUser,inCartofUser} from "../Api-requests/bookRequests"
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import getUser from "../actions/getUser"
@@ -35,6 +37,7 @@ const Book = (props)=>{
   const [redirect,setRedirect] = useState(false)
   const [inCart,setIncart] = useState(false)
   const [isUsers,setIsusers] = useState(false)
+  
     const classes = useStyles();
     useEffect(()=>{
       const username =getUser();
@@ -44,24 +47,29 @@ const Book = (props)=>{
         setIsusers(res.data);
         }
       });
-      // inCartofUser(props.id)
-      // .then((res)=>{
-      //   if(res.status === 200){
-      //   setIncart(res.data);
-      //   }
-      // })
+      inCartofUser(props.id)
+      .then((res)=>{
+        if(res.status === 200){
+        setIncart(res.data);
+        }
+      })
+     
     },[inCart])
     const handleClick = ()=>{
       setRedirect(true);
       }
-      const addtoCart =()=>{
+      const handleCart =()=>{
         
         console.log(props.id)
-        // if(props.inCart)
-        // deletefromCart(props.id)
-        // else
+        if(!inCart)
          handleAddToCart(props.id)
+         else
+         deleteFromCart(props.id)
       }
+      const handleDelete = ()=>{
+       deleteBook(props.id)
+      }
+      
       
 if(redirect)
     {
@@ -76,15 +84,8 @@ if(redirect)
           image={process.env.PUBLIC_URL+'/images/uploads/'+props.imagepath} //change llater
           title="Book"
         />
-         {/* <div className=" dropdown2">
-            <button className="dropbtn2">
-            <i className="fa fa-caret-down" ></i>
-            </button>
-            <div className="dropdown-content">
-            <li></li>
-            <li> </li>
-            </div>
-            </div> */}
+        
+        <li>{isUsers?<button onClick={handleDelete}>delete book</button>:null}</li>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.title}
@@ -98,14 +99,18 @@ if(redirect)
           </Typography>
           
         </CardContent>
-        {/* </CardActionArea> */}
+       
       <CardActions>
         <IconButton aria-label="view details" onClick={handleClick}>
         <AddIcon/>
         </IconButton>
-        <IconButton color={inCart?"primary":""} aria-label="add to cart" onClick={addtoCart}>
+        {inCart?
+        <IconButton color="primary"
+        aria-label="add to cart" onClick={handleCart}>
         <FavoriteIcon/>
         </IconButton>
+        :<button onClick={handleCart}>Add to cart</button>}
+        
       </CardActions>
     </Card>
     </div>

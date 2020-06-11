@@ -58,7 +58,8 @@ const  BooksOfUser =async function(req,res) {
 }
 const BookPresent=async function(req,res){
   const bookid=req.params.bookid;
-  const username=req.params.username;
+  const username=req.user.username;
+  console.log("inside bookpresent",bookid,username)
   await db.sequelize.query(
       'select id from cart where bookId=:BookId and UserUsername=:Username',// ' and UserUsername='+username,
       {replacements:{BookId:bookid, Username:username},
@@ -78,5 +79,8 @@ const BookPresent=async function(req,res){
       return  res.status(422).json({error:err});
        });
 }
-
-export default{BooksOfUser,list,addBook,BookPresent};
+const Delete = (req,res)=>{
+  const bookid=req.params.bookid;
+  const username=req.user.username;
+}
+export default{BooksOfUser,list,addBook,BookPresent,Delete};

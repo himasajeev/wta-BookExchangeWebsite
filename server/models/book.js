@@ -10,10 +10,6 @@ module.exports=(sequelize,Datatypes)=>{
                 type:Datatypes.STRING,
                 allowNull:false,
             },
-            available:{
-                type:Datatypes.BOOLEAN,
-                default:true
-            },
             subject:{
               type:Datatypes.STRING
             },

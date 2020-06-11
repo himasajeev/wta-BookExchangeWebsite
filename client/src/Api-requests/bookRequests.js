@@ -125,7 +125,7 @@ const ownedbooks =  async (username)=>{
         
       
         try{
-            const res = await axios.get('/carts/incartofuser/'+bookId);
+            const res = await axios.get('/cart/incartofuser/'+bookId);
             console.log(res);
             return res;
 
@@ -134,4 +134,30 @@ const ownedbooks =  async (username)=>{
            
             console.log(err.res);}
     }
-export {addbook,ownedbooks,isBookofUser,favouritebooks,bookByName,bookByAuthor,bookBySubject,bookById,getOwnerInfo,inCartofUser};
+    const deletefromcart =  async(bookId)=>{
+        
+      
+        try{
+            const res = await axios.delete('/cart/deletefromcart/'+bookId);
+            console.log(res);
+            return res;
+
+        }
+        catch(err){
+           
+            console.log(err.res);}
+    }
+    const deletebook =  async(bookId)=>{
+        
+      
+        try{
+            const res = await axios.delete('/books/'+bookId);
+            console.log(res);
+            return res;
+
+        }
+        catch(err){
+           
+            console.log(err.res);}
+    }
+export {addbook,ownedbooks,isBookofUser,favouritebooks,bookByName,bookByAuthor,bookBySubject,bookById,getOwnerInfo,inCartofUser,deletebook,deletefromcart};
