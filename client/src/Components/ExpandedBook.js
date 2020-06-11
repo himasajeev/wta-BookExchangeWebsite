@@ -1,14 +1,13 @@
 import React,{useState,useEffect, Fragment} from 'react'
 import {bookById,getOwnerInfo} from '../Api-requests/bookRequests'
-import Button from '@material-ui/core/Button';
-import AddIcon from '@material-ui/icons/Add';
 import Typography from '@material-ui/core/Typography';
 import getUser from '../actions/getUser'
 import InnerNavbar from '../Components/InnerNavbar'
-import handleAddToCart from "../actions/handleAddToCart"
+
 const ExpandedBook = (props)=>{
     const [book,setBook] = useState({
       author:'',
+  
       bookname:'',
       price:'',
       subject:'',
@@ -34,7 +33,7 @@ const ExpandedBook = (props)=>{
              console.log(res.data)
              
                 setBook(res.data)
-                
+                console.log(book.available)
                });
         
             
@@ -71,13 +70,7 @@ return(
             Price: {book.price}
             </Typography>
            
-            <Button
-            onClick={()=>{handleAddToCart(book.id)} }
-          variant="contained"
-          color="default"
-          startIcon={<AddIcon/>}
-          
-      >Add to Cart!</Button>
+            
         
     </div>
  </Fragment>

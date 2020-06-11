@@ -13,6 +13,6 @@ router.route("/incartofuser/:bookid")
     .get(isAuthenticated,cartCtrl.BookPresent)
 router.route("/cartByOwner/:userid")
     .get(isAuthenticated,authCtrl.hasAuthorization,cartCtrl.BooksOfUser)
-router.route("/deletecartelement/:bookid")
+router.route("/deletefromcart/:bookid")
     .delete(isAuthenticated,cartCtrl.Delete)
 export default router;

@@ -79,8 +79,20 @@ const BookPresent=async function(req,res){
       return  res.status(422).json({error:err});
        });
 }
-const Delete = (req,res)=>{
+const Delete = async (req,res)=>{
   const bookid=req.params.bookid;
   const username=req.user.username;
+  
+  //console.log(username);
+await db.cart.destroy({
+  where:{bookId:bookid}
+}).then(book => {
+      console.log(book)
+      console.log("np")
+      return res.status(200).json(book);
+  }).catch(function(err) {
+      console.log(err)
+      return  res.status(422).json({error:err});
+       });
 }
 export default{BooksOfUser,list,addBook,BookPresent,Delete};

@@ -16,6 +16,7 @@ import deleteFromCart from "../actions/deleteFromCart"
 import deleteBook from "../actions/deleteBook"
 import {isBookofUser,inCartofUser} from "../Api-requests/bookRequests"
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import Button from '@material-ui/core/Button';
 import getUser from "../actions/getUser"
 
 import '../../src/Style.css'
@@ -23,7 +24,7 @@ import '../../src/Style.css'
 const useStyles = makeStyles({
     root: {
       maxWidth: 250,
-       height:400,
+       height:450,
     },
     media: {
       height: 150,
@@ -85,7 +86,7 @@ if(redirect)
           title="Book"
         />
         
-        <li>{isUsers?<button onClick={handleDelete}>delete book</button>:null}</li>
+   
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {props.title}
@@ -109,8 +110,17 @@ if(redirect)
         aria-label="add to cart" onClick={handleCart}>
         <FavoriteIcon/>
         </IconButton>
-        :<button onClick={handleCart}>Add to cart</button>}
-        
+        :
+        <Button
+            onClick={handleCart} 
+          variant="contained"
+          color="default"     
+      >Add to Cart</Button>}
+        {isUsers? <Button
+            onClick={deleteBook} 
+          variant="contained"
+          color="red"     
+      >Delete Book</Button>:null}
       </CardActions>
     </Card>
     </div>
