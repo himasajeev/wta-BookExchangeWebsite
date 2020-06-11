@@ -83,4 +83,17 @@ const Delete = (req,res)=>{
   const bookid=req.params.bookid;
   const username=req.user.username;
 }
-export default{BooksOfUser,list,addBook,BookPresent,Delete};
+const  deleteCartBook =async function(req,res) {
+    const bookid = req.params.bookid;
+  await db.cart.destroy({
+    where:{bookId:bookid}
+  }).then(book => {
+        console.log(book)
+        console.log("np")
+        return res.status(200).json(book);
+    }).catch(function(err) {
+        console.log(err)
+        return  res.status(422).json({error:err});
+         });
+}
+export default{BooksOfUser,list,addBook,BookPresent,Delete,deleteCartBook};
