@@ -17,7 +17,7 @@ header{
     overflow: hidden;
     font-size: 22px;
    z-index: 1;
-   position: fixed;
+   
     /* position: fixed; Set the navbar to fixed position */
     top: 0; /* Position the navbar at the top of the page */
     width: 100%; /*Full width */
@@ -262,16 +262,16 @@ header{
     background-repeat: no-repeat;
     /*height: 200vh;*/
     text-decoration: rgb(180, 205, 228);
-    padding-top: 50px;
+   
   }
   .sidenav {
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 26%; /* Set the width of the sidebar */
-    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    position: absolute; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 0; /* Stay on top */
      /* Stay at the top */
     left: 0;
-    top:0;
+  
     background-color: rgb(34, 33, 33); /* Black */
     overflow-x: auto; /* Disable horizontal scroll */
     

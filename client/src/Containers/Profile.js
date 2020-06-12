@@ -7,7 +7,6 @@ import Sidebox from "../Components/Sidebox"
 import Book from "../Components/Book"
 import OwnedBooks from "../Containers/OwnedBooks"
 import Cart from "../Containers/Cart"
-import image from "../assets/images/uploadbk.jpg"
 const Profile = ()=>{
     const [redirect,setRedirect] = useState(false);
     const [user,setUser] = useState({});
@@ -44,8 +43,9 @@ const Profile = ()=>{
    else
     return(<div className="profile"> 
   
-    <Sidebox fn={user.Fname} sn={user.Lname} username={user.username} mail={user.email}/>
     <InnerNavbar username={user.username} />
+    
+    <Sidebox fn={user.Fname} sn={user.Lname} username={user.username} mail={user.email}/>
     <div className="main">
     {/* <p>Hii {user.username}</p> */}
     {/* <Book title="Intro to algo" author="Thomas Corman" price="500" img={image}/> */}
