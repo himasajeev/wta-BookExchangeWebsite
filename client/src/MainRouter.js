@@ -9,6 +9,7 @@ import Search from './Containers/Search'
 import Addbook from './Containers/Addbook'
 import ExpandedBook from "./Components/ExpandedBook"
 import OtherProfile from './Containers/Otherprofile'
+import Recommendations from "./Containers/Recommendations"
 const MainRouter = ()=>{
 return (<Fragment>
     <Switch>
@@ -20,6 +21,7 @@ return (<Fragment>
     <Route path='/users/:username' component={OtherProfile} />
     <Route path='/search' component={Search} />
     <Route path='/addbook' component={Addbook} />
+    <Route path='/recommendations' component={Recommendations} />
     <Route path='/books/:bookid' component={ExpandedBook } />
     </Switch>
 </Fragment>)

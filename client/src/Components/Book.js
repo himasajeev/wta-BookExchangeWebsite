@@ -119,7 +119,7 @@ if(redirect)
         {isUsers? <Button
             onClick={handleDelete} 
           variant="contained"
-          color="red"     
+             
       >Delete Book</Button>:null}
       </CardActions>
     </Card>

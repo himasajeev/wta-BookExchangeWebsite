@@ -18,6 +18,8 @@ const InnerNavbar = (props)=>{
             
             <li className="right"><Link to="/addbook">Addbook</Link></li>
             <li className="right" ><Link to="/search">Search</Link></li>
+            <li className="right" ><Link to="/recommendations">Recommendations</Link></li>
+
         </ul>
     </div>)
 }

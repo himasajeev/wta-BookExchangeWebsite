@@ -298,7 +298,8 @@ await db.sequelize.query(
 
        }
      });
-}).catch(function(err)=>{
+})
+.catch(function(err){
   console.log(err)
 return  res.status(422).json({error:err});
 })
