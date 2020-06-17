@@ -260,7 +260,51 @@ const isBookofUser = async function(req,res){
          return  res.status(422).json({error:err});
           });
 }
+const sentMail = async function (req,res) {
+const nodemailer = require('nodemailer');
+const name=req.user.Fname+req.user.Lname
+const bookid=req.params.bookid
+await db.sequelize.query(
+   'select * from Users where username IN (select UserUsername from book_belongs_to where bookId=?)',
+   {
+       replacements: [bookid],
+       type: QueryTypes.SELECT
+   }
+   )
+   .then(user=>
+   {
+     var transporter = nodemailer.createTransport({
+       service: 'gmail',
+       auth: {
+         user: 'tempt088@gmail.com',
+         pass: 'ABcd@123'
+       }
+     });
+
+     var mailOptions = {
+       from: 'himasajeev0801@gmail.com',
+       to: user.email,
+       subject: 'You have a customer',
+       text: 'Hey \n '+name +'wants to buy your book with bookid'+bookid+'. Please do contact him at '+req.user.mailid+'\n Thank you from book exchange team'
+     };
+
+     transporter.sendMail(mailOptions, function(error, info){
+       if (error) {
+         console.log(error);
+         return res.status(200).send('failed to send mail');
+       } else {
+         console.log('Email sent: ' + info.response);
+         return res.status(200).send('success');
+
+       }
+     });
+}).catch(function(err)=>{
+  console.log(err)
+return  res.status(422).json({error:err});
+})
+
+}
 
       
 
-export default {FindBookByAuthor, isBookofUser,FindBookByName, FindBookBySub, BooksOfUser,isOwner,bookById,read,list,addBook,update,Delete,ownerInfo}
+export default {FindBookByAuthor, isBookofUser,FindBookByName, FindBookBySub, BooksOfUser,isOwner,bookById,read,list,addBook,update,Delete,ownerInfo,sentMail}
