@@ -69,24 +69,9 @@ console.log("insid delete");
             type: QueryTypes.UPDATE
         }
     )
-//.then(()=>{
-//         db.sequelize.query(
-//             'DELETE FROM book_belongs_to WHERE id =? ',
-//             {
-//                 replacements: [bookid],
-//                 type: QueryTypes.UPDATE
-//             }
-//         ).then(()=>{
-//             return res.status(200).json("success");
-//         })
-//         .catch(err=> {
-//             console.log(err)
-//        return  res.status(422).json({error:err});
-//    });
+
         
-//     }
-        
-//     )
+
     .then(()=>{
               return res.status(200).json("success");
                 })

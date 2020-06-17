@@ -16,32 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `book`
+-- Table structure for table `cart`
 --
 
-DROP TABLE IF EXISTS `book`;
+DROP TABLE IF EXISTS `cart`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `book` (
+CREATE TABLE `cart` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `bookname` varchar(255) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `available` tinyint(1) DEFAULT NULL,
-  `subject` varchar(255) DEFAULT NULL,
-  `imagepath` varchar(255) DEFAULT NULL,
-  `price` float DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  `bookId` int DEFAULT NULL,
+  `UserUsername` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `bookId` (`bookId`),
+  KEY `UserUsername` (`UserUsername`),
+  CONSTRAINT `cart_ibfk_1` FOREIGN KEY (`bookId`) REFERENCES `book` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `cart_ibfk_2` FOREIGN KEY (`UserUsername`) REFERENCES `users` (`username`) ON DELETE SET NULL ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `book`
+-- Dumping data for table `cart`
 --
 
-LOCK TABLES `book` WRITE;
-/*!40000 ALTER TABLE `book` DISABLE KEYS */;
-INSERT INTO `book` VALUES (18,'Introduction to Algorithms','Thomas Corman',1,'DSA','file-15917296503581.PNG',500),(19,'Database design Concepts','Abraham Silbershatz',1,'DBMS','file-15917296958762.PNG',350),(20,'Data Structures and Algorithms in Java','Adrian Meija',1,'DSA','file-15917297252833.PNG',400),(21,'Data Structures and Algorithms in Java','Robert Lafore',1,'DSA','file-15917299972394.PNG',380),(22,'Operating System Concepts','Abraham Silbershatz',1,'OS','file-15917300431735.PNG',400),(23,'Operating System Principles','Abraham Silbershatz',1,'OS','file-15917301287096.PNG',500);
-/*!40000 ALTER TABLE `book` ENABLE KEYS */;
+LOCK TABLES `cart` WRITE;
+/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
+INSERT INTO `cart` VALUES (10,NULL,'nithya0903'),(13,NULL,'nithya0903'),(20,20,'priyanka'),(21,27,'nithya0903');
+/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-06-10 11:50:38
+-- Dump completed on 2020-06-14 17:29:19
