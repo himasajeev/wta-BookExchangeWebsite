@@ -7,9 +7,7 @@ import TableBox from "../Components/TableBox"
 import getUser from '../actions/getUser'
 import Book from '../Components/Book'
 const Search = ()=>{
-    const style={
-        width:"400px"
-    }
+    
     const [books,setBooks] = useState([]);
    const [user,setUser] = useState('')
     useEffect(()=>{
@@ -73,7 +71,7 @@ const Search = ()=>{
     return(<div>
     <InnerNavbar  username={user}/>
     <form className="searchdiv" onSubmit={handleSubmit}>
-    <div className="custom-select" style={style}>
+    <div className="custom-select">
   <select name="type">
     <option value="0">Search by</option>
     <option value="1">Title</option>

@@ -9,8 +9,10 @@ import {bookByName,bookByAuthor,bookBySubject} from "../Api-requests/bookRequest
 const Recommendations = ()=>{
     const [CartBooks,setBooks] = useState([]);
     const [Recommended,setRecommended] = useState([]);
+    const [user,setUser] = useState([])
     const getRecommendtions = async ()=>{
-        const username =  getUser();
+        setUser(getUser());
+         const username = getUser();
         await favouritebooks(username).then((res)=>{
             if(res.status===200 && res.data)
             {     
@@ -53,7 +55,7 @@ const Recommendations = ()=>{
         },[]);
 
         return (<div>
-        <InnerNavbar/>
+        <InnerNavbar username={user}/>
         {CartBooks.length===0?
             <h3>Add books to cart to get recommendations</h3>:
             <TableBox Books={Recommended} />

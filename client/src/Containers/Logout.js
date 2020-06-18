@@ -25,7 +25,7 @@ const Logout = (props) => {
         <Redirect to="/" push={true}/>
     );
     else
-    return(<Button className="classes.root" onClick={handleClick}>Log Out</Button>);
+    return(<button className="logout" onClick={handleClick}>Log Out</button>);
 }
 
 export default Logout;
