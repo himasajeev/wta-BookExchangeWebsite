@@ -1,5 +1,5 @@
 import React,{useState,useEffect, Fragment} from 'react'
-import {bookById,getOwnerInfo} from '../Api-requests/bookRequests'
+import {bookById,getOwnerInfo,sendmail} from '../Api-requests/bookRequests'
 import Typography from '@material-ui/core/Typography';
 import getUser from '../actions/getUser'
 import InnerNavbar from '../Components/InnerNavbar'
@@ -43,7 +43,12 @@ const ExpandedBook = (props)=>{
         
     },[])
    
-    
+    const handleMail = async ()=>{
+    await sendmail(book.id).then((res)=>{
+      if(res.status===200)
+      alert("successfully sent mail to owner")
+    })
+    }
       
 return(
  <Fragment>
@@ -71,8 +76,8 @@ return(
             Price: {book.price}
             </Typography>
            
-            
-        
+            <p> Click to request book!!</p>
+            <button onClick={handleMail}> Send email</button>        
     </div>
  </Fragment>
    

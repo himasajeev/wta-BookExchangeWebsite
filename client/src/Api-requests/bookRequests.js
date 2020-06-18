@@ -162,4 +162,19 @@ const ownedbooks =  async (username)=>{
            
             console.log(err.res);}
     }
-export {addbook,ownedbooks,isBookofUser,favouritebooks,bookByName,bookByAuthor,bookBySubject,bookById,getOwnerInfo,inCartofUser,deletebook,deletefromcart};
+    const sendmail =  async(bookId)=>{
+        
+      
+        try{
+            console.log("inside sendmail")
+            console.log(bookId)
+            const res = await axios.get('/books/sendmail/'+bookId);
+            console.log(res);
+            return res;
+
+        }
+        catch(err){
+           
+            console.log(err.res);}
+    }
+export {addbook,ownedbooks,isBookofUser,sendmail,favouritebooks,bookByName,bookByAuthor,bookBySubject,bookById,getOwnerInfo,inCartofUser,deletebook,deletefromcart};

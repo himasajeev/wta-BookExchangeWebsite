@@ -263,7 +263,9 @@ const isBookofUser = async function(req,res){
 const sentMail = async function (req,res) {
 const nodemailer = require('nodemailer');
 const name=req.user.Fname+req.user.Lname
-const bookid=req.params.bookid
+const bookid=req.params.bookId
+console.log(name)
+console.log(bookid)
 await db.sequelize.query(
    'select * from Users where username IN (select UserUsername from book_belongs_to where bookId=?)',
    {
@@ -272,17 +274,17 @@ await db.sequelize.query(
    }
    )
    .then(user=>
-   {
+   {console.log(user)
      var transporter = nodemailer.createTransport({
        service: 'gmail',
        auth: {
-         user: 'tempt088@gmail.com',
-         pass: 'ABcd@123'
+         user: 'nithyamanoj.ms@gmail.com',
+         pass: 'nithya1210!'
        }
      });
 
      var mailOptions = {
-       from: 'himasajeev0801@gmail.com',
+       from: 'nithyamanoj.ms@gmail.com',
        to: user.email,
        subject: 'You have a customer',
        text: 'Hey \n '+name +'wants to buy your book with bookid'+bookid+'. Please do contact him at '+req.user.mailid+'\n Thank you from book exchange team'
