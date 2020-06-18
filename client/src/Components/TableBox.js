@@ -3,10 +3,18 @@ import Book from "../Components/Book"
 import '../../src/Style.css'
 const TableBox= (props)=>{
     const Books = props.Books;
+    var ids = []
    //var uniqueBooks = [...new Set(Books)]
  function onlyUnique(value, index, self) { 
-     console.log(value,index,self.indexOf(value))
-    return self.indexOf(value) === index;
+     
+     var status = true;
+    ids.forEach(id => {
+        if(id === value.id)
+        status= false;
+    });
+    if(status)
+    ids.push(value.id)
+    return status;
 }
 var uniqueBooks = Books.filter( onlyUnique );
     console.log(uniqueBooks)
