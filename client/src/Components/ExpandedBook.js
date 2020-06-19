@@ -3,6 +3,7 @@ import {bookById,getOwnerInfo,sendmail} from '../Api-requests/bookRequests'
 import Typography from '@material-ui/core/Typography';
 import getUser from '../actions/getUser'
 import InnerNavbar from '../Components/InnerNavbar'
+import '../../src/Style.css'
 
 const ExpandedBook = (props)=>{
     const [book,setBook] = useState({
@@ -64,20 +65,15 @@ return(
             <Typography gutterBottom variant="body1" color="primary" component="h3">
             Subject:{book.subject}
             </Typography>
-            <Typography gutterBottom variant="body1" color="primary" component="h3">
-            Owner:{owner.username}
             
-            </Typography>
-            <Typography gutterBottom variant="body1" color="primary" component="h3">
-            Contact Info:{owner.email}
-            {/* Contact info: nithyamanoj.ms@gmail.com */}
-            </Typography>
             <Typography gutterBottom variant="body2" color="primary" component="h5">
             Price: {book.price}
             </Typography>
-           
-            <p> Click to request book!!</p>
-            <button onClick={handleMail}> Send email</button>        
+            <Typography gutterBottom variant="body2" color="primary" component="h5">
+            Click to request book!!
+            </Typography>
+            <button className="mail"
+            onClick={handleMail}> Send email</button>        
     </div>
  </Fragment>
    

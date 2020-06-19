@@ -282,12 +282,12 @@ await db.sequelize.query(
          pass: 'BOOK@Exchange'
        }
      });
-
+console.log(req.user)
      var mailOptions = {
        from: 'bookexchange51@gmail.com',
-       to: user.email,
+       to: user[0].email,
        subject: 'You have a customer',
-       text: 'Hey \n '+name +' wants to buy your book with bookid'+bookid+'. Please do contact him at '+req.user.mailid+'\n Thank you from book exchange team'
+       text: 'Hey \n '+name +' wants to buy your book with bookid '+bookid+'. Please do contact him at '+req.user.email+'\n Thank you from book exchange team'
      };
 
      transporter.sendMail(mailOptions, function(error, info){

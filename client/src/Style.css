@@ -349,6 +349,7 @@ header{
     margin-top: 100px;
     align-self: center;
     text-align: center;
+    margin-bottom: 20px;
   }
  
   /* .profile section{
@@ -462,6 +463,10 @@ header{
     color: whitesmoke;
     text-align: center;
     padding-top: 5%;
+  }
+ .mail{
+    color:whitesmoke;
+    background-color: black;
   }
   .about .navbar{
     background:linear-gradient(rgba(120, 141, 62, 0.6),rgba(98, 116, 49, 1));
