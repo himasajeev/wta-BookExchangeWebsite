@@ -278,16 +278,16 @@ await db.sequelize.query(
      var transporter = nodemailer.createTransport({
        service: 'gmail',
        auth: {
-         user: 'nithyamanoj.ms@gmail.com',
-         pass: 'nithya1210!'
+         user: 'bookexchange51@gmail.com',
+         pass: 'BOOK@Exchange'
        }
      });
 
      var mailOptions = {
-       from: 'nithyamanoj.ms@gmail.com',
+       from: 'bookexchange51@gmail.com',
        to: user.email,
        subject: 'You have a customer',
-       text: 'Hey \n '+name +'wants to buy your book with bookid'+bookid+'. Please do contact him at '+req.user.mailid+'\n Thank you from book exchange team'
+       text: 'Hey \n '+name +' wants to buy your book with bookid'+bookid+'. Please do contact him at '+req.user.mailid+'\n Thank you from book exchange team'
      };
 
      transporter.sendMail(mailOptions, function(error, info){
